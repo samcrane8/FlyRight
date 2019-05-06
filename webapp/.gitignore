@@ -1,0 +1,3 @@
+node_modules/
+icarus-web-app/dist/**
+icarus-web-app/src/config/env.js

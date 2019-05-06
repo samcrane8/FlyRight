@@ -1,0 +1,10 @@
+
+
+
+secrets.json
+.idea
+*.pyc
+dump.rdb
+
+celerybeat.pid
+celerybeat-schedule.db

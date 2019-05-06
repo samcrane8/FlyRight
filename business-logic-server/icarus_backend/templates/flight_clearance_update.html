@@ -1,0 +1,6 @@
+{% autoescape off %}
+ Hi {{ user }},
+
+The clearance of your flight titled "{{ flight_title }}" has been updated by user {{ gov_off }}. The new clearance state is {{ state }}. Here is the message they left: "{{ message }}". {%  if state == 'NOTIFICATION RECEIVED' %}Notification does not relieve you of adhering to FAA regulations. Fly safely. {% elif state == 'CAUTION' %}Make sure you obtain approval from institute communications. Fly safely. {% elif state == 'RECOMMEND AGAINST FLIGHT' %}Your flight has been recommended against.
+{% endif %}
+{% endautoescape %}
