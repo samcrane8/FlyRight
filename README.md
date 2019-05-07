@@ -7,7 +7,7 @@ A drone flight registration system to help local law enforcement.
 
 ## Partners
 
-Georgia Tech Police Department was critical in the development of this system.
+[Georgia Tech Police Department](http://www.police.gatech.edu/) was critical in the development of this system. The original IcarusMap project was with head of Physical Security, Jeffrey Hunnicutt, who met with our team weekly to hone this product to best help the campus.
 
 ## Contributors
 
