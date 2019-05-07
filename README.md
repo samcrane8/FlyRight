@@ -35,4 +35,4 @@ Though this project has jumped different repositories and it does not show in th
 
 ### Pelori
 
-Sam Crane subsequently founded [Pelori](pelori.io) as a robotic solutions provider. Pelori provides deployment and server maintenance solutions, and is a major contributor to the FlyRight source code.
+Sam Crane subsequently founded [Pelori](https://www.pelori.io) as a robotic solutions provider. Pelori provides deployment and server maintenance solutions, and is a major contributor to the FlyRight source code.
