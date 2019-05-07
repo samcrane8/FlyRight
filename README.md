@@ -5,6 +5,10 @@ A drone flight registration system to help local law enforcement.
 
 ![](https://raw.githubusercontent.com/samcrane8/FlyRight/master/docs/flights_page.png)
 
+## API
+
+Currently we do not have a postman workspace because we are cheap. We do have a readme with endpoint details [here](https://github.com/samcrane8/FlyRight/tree/master/docs). We generate the documents with a project called [Postdown](https://github.com/TitorX/Postdown). The only issue is that Postdown does not currently handle Folders nor empty description/queries properly, so I had to fork the repo. I have a pull request waiting but in the meantime, you can use my fork [here](https://github.com/samcrane8/Postdown).
+
 ## Partners
 
 [Georgia Tech Police Department](http://www.police.gatech.edu/) was critical in the development of this system. The original IcarusMap project was with head of Physical Security, Jeffrey Hunnicutt, who met with our team weekly to hone this product to best help the campus.
