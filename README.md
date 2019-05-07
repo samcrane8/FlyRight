@@ -27,8 +27,8 @@ Timothy Lee O'Connor - https://github.com/tjlo3
 
 Ladd Jones - https://github.com/laddjones
 
+Though this project has jumped different repositories and it does not show in the git history, these people were involved at the beginning and deserve credit.
+
 ### Pelori
 
 Sam Crane subsequently founded [Pelori](pelori.io) as a robotic solutions provider. Pelori provides deployment and server maintenance solutions, and is a major contributor to the FlyRight source code.
-
-Though this project has jumped different repositories and it does not show in the git history, these people were involved at the beginning and deserve credit.
