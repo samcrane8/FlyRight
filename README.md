@@ -1,6 +1,9 @@
 # FlyRight
 A drone flight registration system to help local law enforcement.
 
+![](https://raw.githubusercontent.com/samcrane8/FlyRight/master/docs/flight_page.png)
+
+![](https://raw.githubusercontent.com/samcrane8/FlyRight/master/docs/flights_page.png)
 
 ## Partners
 
