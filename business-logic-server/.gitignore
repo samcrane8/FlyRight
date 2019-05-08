@@ -1,5 +1,5 @@
 
-
+venv/
 
 secrets.json
 .idea
@@ -8,3 +8,7 @@ dump.rdb
 
 celerybeat.pid
 celerybeat-schedule.db
+
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
