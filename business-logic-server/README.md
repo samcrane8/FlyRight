@@ -4,43 +4,25 @@ This is the Application Server of the Icarus Drone management system.
 
 ## Setup
 
-### Python
+For setting up, use the appropriate bash script for installation.
 
-Python is currently v3.6, until 3.7 stabilizes a bit more.
+For example, for Ubuntu 16.04, use the `install_on_ubuntu_16_04.sh` file.
 
-### Postgres
-
-Most of the data in our server is stored in postgres. This is how you can setup a postgres database with all of the bells and whistles we need.
-
-First, download postgres:
-
-`sudo apt-get install postgres`
-
-Then enter the database via `psql postgres`.
-
-`create user django_user`
-
-Add a password:
-
-`alter user <username> with encrypted password '<password>';`
-
-Create the database:
-
-`create database icarus_db`
-
-grant all privileges on icarus_db to django_user.
-
-Install everything necessary for postgis, then in the icarus_db run `create extension postgis;`
-
-### Geodjango
-
-This application server uses Postgis to maintain geolocated data.
-
-Therefore there's some shit you have to setup.
-
-Read this link, one day I will have a more comprehensive tutorial on this readme: https://docs.djangoproject.com/en/2.0/ref/contrib/gis/install/
+If you have a different operating system you may need to apply some modifications to
+get your system working. New scripts to handle different OS's would be greatly appreciated.
 
 ## Run
+
+First, make sure you are in the virtual environment: `source venv/bin/activate`
+
+### Single-Line
+
+There is a single line script that runs each of these commands. It is slightly more convenient
+than doing manually. 
+
+Just simply write: `sh run_server_on_{CURRENT_OS}.sh` for whichever OS you are running on.
+
+### Manually
 
 You will need four different `screen` instances with the following commands typed in to run this server: 
 
