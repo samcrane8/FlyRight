@@ -36,6 +36,10 @@ Third one is the celery worker: `celery worker -A icarus_backend --loglevel=debu
 
 Fourth one is the celery beat: `celery beat -A icarus_backend --loglevel=debug --scheduler django_celery_beat.schedulers:DatabaseScheduler`
 
+### Nginx Proxy
+
+There 
+
 ## Authentication
 
 We use OAuth2 to authenticate users, though for superusers we also have the model backend. 

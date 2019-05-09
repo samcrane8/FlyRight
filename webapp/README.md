@@ -1,4 +1,4 @@
-# Icarus Web Application
+# Flyright Web Application
 
 ## Installation Guide for Icarus 1.0
 ### Pre-Requisites
@@ -30,6 +30,8 @@ export default{
 
 ### Build and Run
 
+ATTENTION: Make sure you have your env.js file setup or else the website will not run.
+
 ``` bash
 # serve with hot reload at localhost:8080
 yarn serve
@@ -43,6 +45,10 @@ Open a web browser and in the Address Field go to the following
 ``` bash
 localhost:8080
 ```
+
+If you want to run on the server, setup nginx. Upload the `dist/` folder that is
+generated when `yarn build` is run. Setup the nginx enabled-site to point to the
+index.html file in the `dist` to statically serve the webapp.
 
 ### Troubleshooting
 
