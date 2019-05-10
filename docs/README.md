@@ -1189,14 +1189,15 @@ POST {{url}}/pilot/register/
 > **Body**
 > 
 > ```
-> {
-> 	"username": "samcrane11",
-> 	"password": "lawrence11",
-> 	"email": "samcrane8@gmail.com",
-> 	"faa_registration_number": "123",
-> 	"mobile_phone_number": "4047718471",
-> 	"remote_pilot_certificate_number": "456"
-> }
+>{ 
+>	"username": "anushk_test",
+>	"password": "anushk_test",
+>	"email": "anushk_test@gmail.com",
+>	"mobile_phone_number": "4247718471",
+>	"remote_pilot_certificate_number": "456",
+>	"first_name": "anushk_test",
+>	"last_name": ""
+>}
 > ```
 > 
 
