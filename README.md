@@ -1,7 +1,7 @@
 # FlyRight
 A drone flight registration system to help local law enforcement. This system is currently used by GTPD at the Georgia Institute of Technology. Our goal is to get more campuses using this software, and build an active community around the code.
 
-Here is a video demonstration: [](https://www.youtube.com/watch?v=AOCtnlbaQSA&feature=youtu.be)
+Here is a video demonstration: [https://www.youtube.com/watch?v=AOCtnlbaQSA&feature=youtu.be](https://www.youtube.com/watch?v=AOCtnlbaQSA&feature=youtu.be)
 
 ![](https://raw.githubusercontent.com/samcrane8/FlyRight/master/docs/flight_page.png)
 
