@@ -12,3 +12,6 @@ celerybeat-schedule.db
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
+
+push_dev.sh
+push_prod.sh
