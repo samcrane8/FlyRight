@@ -10,7 +10,7 @@ psql -u postgres -d "flyright_db" -c "CREATE EXTENSION postgis;"
 psql -u postgres -d "flyright_db" -c "GRANT ALL PRIVILEGES on DATABASE flyright_db to flyright_user;"
 
 #setup nginx proxy?
-sudo ln /home/ubuntu/FlyRight/business-logic-server/flyright-nginx-site /etc/nginx/sites-enabled/
+sudo ln flyright-nginx-site /etc/nginx/sites-enabled/
 sudo service nginx restart
 
 # setup python
@@ -19,5 +19,5 @@ sudo apt-get update
 sudo apt-get install python3.6
 # Setup virtualenvironment
 sudo apt-get install virtualenv
-virtualenv /home/ubuntu/FlyRight/business-logic-server/venv --python=python3.6
-/home/ubuntu/FlyRight/business-logic-server/venv/bin/pip install -r /home/ubuntu/FlyRight/business-logic-server/requirements.txt
+virtualenv venv --python=python3.6
+venv/bin/pip install -r requirements.txt
