@@ -33,6 +33,18 @@ To do so, follow the tutorial found here in the django-oauth-toolkit documentati
 
 ## Contributors
 
+### How to Help
+
+If you would like to help, please send me an email. I also have not maintained a large open-sourced repository before so guidance on that front would be appreciated as well. Here are the things I would like to accomplish:
+
+#### To Do
+
+<ul>
+  <li> Docker container setup scripts.
+  <li> Unit Testing on the Front-End
+  <li> Comprehensive unit-testing on the back-end server.
+</ul>
+
 ### Initial Team
 
 This codebase started as a junior design project at Georgia Tech. The original version was called IcarusMap.
