@@ -1,8 +1,7 @@
 # FlyRight
 A drone flight registration system to help local law enforcement. This system is currently used by GTPD at the Georgia Institute of Technology. 
 
-My goal is to get more campuses using this software, and build an active community around the code. Developing an open-sourced solution for this problem will help transition our society into an age of drones in delivery, construction, public safety, and more.
-
+I have been working for the past year and a half with the Georgia Tech Police Department to develop and deploy this system. Though they do not have jurisdiction to control their airspace, the ability to review and communicate with pilots has been invaluable: during the super bowl there were 64 TFR (Temporary Flight Restriction) infractions across Atlanta, costing each pilot roughly $20,000. None came from Georgia Tech campus. Using our software, all pilots were notified with the email functionality and all flight plans were recommended against. This way we ensured a safer campus.
 Here is a video demonstration: [https://www.youtube.com/watch?v=AOCtnlbaQSA&feature=youtu.be](https://www.youtube.com/watch?v=AOCtnlbaQSA&feature=youtu.be)
 
 ![](https://raw.githubusercontent.com/samcrane8/FlyRight/master/docs/flight_page.png)
