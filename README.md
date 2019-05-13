@@ -43,6 +43,9 @@ If you would like to help, please send me an email. I also have not maintained a
   <li> Docker container setup scripts.
   <li> Unit Testing on the Front-End
   <li> Comprehensive unit-testing on the back-end server.
+  <li> iOS app implementation.
+  <li> airspace deconfliction
+  <li> 3D flight plans
 </ul>
 
 ### Initial Team
