@@ -35,7 +35,7 @@ To do so, follow the tutorial found here in the django-oauth-toolkit documentati
 
 ### How to Help
 
-If you would like to help, please send me an email. I also have not maintained a large open-sourced repository before so guidance on that front would be appreciated as well. Here are the things I would like to accomplish:
+If you would like to help, please send me an email (samcrane8@gmail.com) with the subject line starting with [FlyRight]. I also have not maintained a large open-sourced repository before so guidance on that front would be appreciated as well. Here are the things I would like to accomplish:
 
 #### To Do
 
