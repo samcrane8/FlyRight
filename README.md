@@ -25,7 +25,7 @@ do not have to run the business-logic server yourself.
 That server can be found here: `devapi.icarusmap.com`.
 
 Authentication is done via OAuth so you will need to generate custom values for `client_id` and `client_secret` to connect.
-To do so, follow the tutorial found here in the django-oauth-toolkit documentation: `https://django-oauth-toolkit.readthedocs.io/en/latest/tutorial/tutorial_01.html`.
+To do so, follow the tutorial found here in the django-oauth-toolkit documentation: [https://django-oauth-toolkit.readthedocs.io/en/latest/tutorial/tutorial_01.html](https://django-oauth-toolkit.readthedocs.io/en/latest/tutorial/tutorial_01.html).
 
 ## Partners
 
