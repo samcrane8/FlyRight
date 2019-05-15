@@ -3,7 +3,19 @@
 ## Installation Guide for Icarus 1.0
 ### Pre-Requisites
 
-You must have Yarn installed before proceeding. See https://yarnpkg.com/lang/en/docs/install/
+First install the nvm. This code works with node v8 but I have not done extensive testing on more recent versions.
+
+You can install the node version manager (NVM) like this: `wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash`
+
+Also refer to the NVM github here: (https://github.com/nvm-sh/nvm)[https://github.com/nvm-sh/nvm]
+
+You will need to exit and reopen the terminal to get nvm to work after installation.
+
+Then install node v8: `nvm install v8`
+
+And finally to use v8, type `nvm use v8`
+
+You must have Yarn installed before proceeding. See (https://yarnpkg.com/lang/en/docs/install/)[https://yarnpkg.com/lang/en/docs/install/] for information on installation.
 
 ### Dependencies and Installation
 
@@ -17,7 +29,7 @@ For more information on [vue-loader], visit http://vuejs.github.io/vue-loader
 
 ### Config
 
-You will need to add a new file called `icarus-web-app/src/config/env.js` to the root of this directory.
+You will need to add a new file called `icarus-web-app/src/config/env.js` to the root of this directory. This is *not* the config folder `icarus-web-app/config`, that is a different location and if you put your `env.js` file there it will not work.
 The file should have the following format.
 
 ```
@@ -34,7 +46,7 @@ ATTENTION: Make sure you have your env.js file setup or else the website will no
 
 ``` bash
 # serve with hot reload at localhost:8080
-yarn serve
+yarn start
 
 # build for production with minification
 yarn build
