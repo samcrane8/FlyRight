@@ -46,6 +46,7 @@ If you would like to help, please send me an email (samcrane8@gmail.com) with th
   <li> iOS app implementation.
   <li> airspace deconfliction
   <li> 3D flight plans
+  <li> Setup watchdog to restart celery-worker if it ever crashes.
 </ul>
 
 ### Initial Team
