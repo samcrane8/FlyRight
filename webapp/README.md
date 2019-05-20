@@ -44,6 +44,8 @@ export default{
 
 ATTENTION: Make sure you have your env.js file setup or else the website will not run.
 
+Make sure you are in the FlyRight/webapp/icarus-web-app directory and then run the following command:
+
 ``` bash
 # serve with hot reload at localhost:8080
 yarn start
