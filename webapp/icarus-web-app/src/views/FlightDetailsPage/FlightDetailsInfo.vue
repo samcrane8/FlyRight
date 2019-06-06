@@ -101,7 +101,7 @@
                       label="Write a short message to the commander to explain how you're setting the status."
                       multi-line
                       rows="3"
-                      :placeholder="flight.clearance.message"
+                      :value="flight.clearance.message"
                       v-model="clearance.message"
                     >
                     </v-text-field>
