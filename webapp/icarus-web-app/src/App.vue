@@ -4,10 +4,10 @@
 		>
 			<v-toolbar-title style="margin-right:20px;">
 				<router-link v-if="!logged_in" to="/" tag="span" style="cursor: pointer;color: white;font-weight:200;">
-					<img src="static/logo_black.png" width="40px" style="padding-top:10px;"/>
+					<img src="static/GT_Logo.png" width="40px" style="padding-top:10px;"/>
 				</router-link>
 				<router-link v-if="logged_in" to="/homepage" tag="span" style="cursor: pointer;color: white;font-weight:200;">
-					<img src="static/logo_black.png" width="40px" style="padding-top:10px;"/>
+					<img src="static/GT_Logo.png" width="40px" style="padding-top:10px;"/>
 				</router-link>
 			</v-toolbar-title>
 			<v-toolbar-items class="hidden-xs-only">
@@ -140,7 +140,7 @@
 	Vue.use(VueAxios, axios)
 	Vue.use(Vuetify, {
 		theme: {
-			primary: '#04274A',
+			primary: '#000000',
 			secondary: '#E5B43D',
 			accent: '#8c9eff',
 			error: '#b71c1c'
@@ -240,7 +240,7 @@
             this.notification_color = "white"
           }
         }
-        
+
         response = await this.notification_feed(
           this.$store.state.access_token, 7
         );

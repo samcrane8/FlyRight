@@ -15,11 +15,11 @@
         <div
         style="margin:10px;">
           <v-list dense class="pt-0">
-              <v-text-field 
+              <v-text-field
               label="Flight Title"
               v-model="flight.title">
               </v-text-field>
-              <v-text-field 
+              <v-text-field
               label="Description"
               multi-line
               v-model="flight.description">
@@ -138,7 +138,7 @@
         weekdays: ['M', 'T', 'W', 'TH', 'F', 'S', 'SU'],
         picked_weekdays: [],
         ends_at: '',
-        
+
         flight: {
           title: '',
           description: '',
@@ -168,7 +168,7 @@
             frequency: this.frequency,
             ends_at: this.ends_at
           }
-        } 
+        }
         this.$emit('submit_flight', flight_plan)
       },
       async get_drones() {

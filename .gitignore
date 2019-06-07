@@ -1,2 +1,4 @@
 push_backend.sh
 push_all.sh
+.idea/
+webapp/.idea/
