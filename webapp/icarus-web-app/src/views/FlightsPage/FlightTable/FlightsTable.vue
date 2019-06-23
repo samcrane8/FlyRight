@@ -159,8 +159,7 @@
                           label="Write a short message to the commander to explain how you're setting the status."
                           multi-line
                           rows="3"
-                          :placeholder="props.item.clearance.message"
-                          v-model="message"
+                          v-model="props.item.clearance.message"
                         >
                         </v-text-field>
                       </v-flex>
@@ -288,7 +287,8 @@
 				return clearance["message"]
       },
       async update_clearance(item) {
-				item.clearance.state = this.currState;
+        item.clearance.state = this.currState;
+        this.message = item.clearance.message;
 				const response = await this.edit_clearance(
 					item.id, item.clearance.state, this.message,
 					this.$store.state.access_token
