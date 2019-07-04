@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=osiris_db
+    env_file: db.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  web:
+    build:
+      context: .
+      dockerfile: prod.Dockerfile
+    command: gunicorn osiris_server.wsgi:application --bind 0.0.0.0:8000
+    environment:
+      - SQL_DATABASE=osiris_db
+      - SQL_HOST=db
+      - SQL_PORT=5432
+      - SQL_USER=postgres
+      - SQL_ENGINE=django.db.backends.postgresql
+      - DATABASE=postgres
+    env_file: web.env
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 8000:8000
+    expose:
+      - 8000
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80
+    depends_on:
+      - web
+
+volumes:
+  postgres_data:
