@@ -1,10 +1,10 @@
+import os
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from users.tokens import account_activation_token
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from icarus_backend.celery import app
-from icarus_backend.secrets import secrets
 
 
 @app.task
@@ -17,7 +17,7 @@ def new_flight_registered_email(username, email, user_id, domain):
         'token': account_activation_token.make_token(username),
     })
     email = EmailMessage(
-        mail_subject, message, secrets["email"]["from"], to=[email]
+        mail_subject, message, os.environ.get('EMAIL_ADDRESS', 'DEV'), to=[email]
     )
     email.send()
 

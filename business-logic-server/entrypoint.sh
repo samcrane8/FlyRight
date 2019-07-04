@@ -10,10 +10,8 @@ then
     echo "PostgreSQL started"
 fi
 
-ls
-
-python3 ../business-logic-server/manage.py makemigrations osiris_server
-python3 ../business-logic-server/manage.py migrate
+cd business-logic-server && python3.7 manage.py makemigrations icarus_backend
+python3.7 manage.py migrate
 echo "MIGRATED"
 
 exec "$@"

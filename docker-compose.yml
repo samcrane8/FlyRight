@@ -2,25 +2,30 @@ version: '3'
 
 services:
   db:
-    image: postgres
+    image: kartoza/postgis
     environment:
-      - POSTGRES_DB=osiris_db
+      - POSTGRES_PASS=postgres
+      - POSTGRES_USER=postgres
     env_file: db.env
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-  web:
+  business-logic:
     build:
       context: business-logic-server
       dockerfile: Dockerfile
-    command: business-logic-server/manage.py runserver 0.0.0.0:8000
+    command: python3.7 manage.py runserver 0.0.0.0:8000
     environment:
-      - SQL_DATABASE=osiris_db
+      - SQL_DATABASE=gis
+      - FLYRIGHT_BUILD=DEV
       - SQL_HOST=db
       - SQL_PORT=5432
       - SQL_USER=postgres
-      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_PASSWORD=postgres
+      - SQL_ENGINE=django.contrib.gis.db.backends.postgis
       - DATABASE=postgres
-    env_file: web.env
+      - EMAIL_ADDRESS=example@place.com
+      - SLACKBOT_WEBHOOK_URL=http://something.slack.com
+    env_file: business-logic.env
     volumes:
       - .:/usr/src/app
     ports:
