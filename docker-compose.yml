@@ -32,6 +32,23 @@ services:
       - 8000:8000
     expose:
       - 8000
+  web:
+    build:
+      context: webapp
+      dockerfile: Dockerfile
+    command: yarn start
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8080
+      - BUSINESS_LOGIC_HOST=business-logic
+      - CHOKIDAR_USEPOLLING=true
+      - CLIENT_ID=1
+      - CLIENT_SECRET=2
+    env_file: webapp.env
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
 
 volumes:
   postgres_data:

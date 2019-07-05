@@ -5,28 +5,24 @@ import Vue from 'vue';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import qs from 'qs';
-import * as data from '@/config/env.js'
 
 
 Vue.use(VueAxios, axios)
 
 export default {
-  data () {
-  	return data.default
-  },
   methods: {
     //USER API CALLS
     async isLoggedIn(token) {
-    	var url = this.base_url + '/user/is_logged_in/'
+    	var url = process.env.BUSINESS_LOGIC_HOST + '/user/is_logged_in/'
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async login(username, password) {
-      var url = this.base_url + '/o/token/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/o/token/'
       var data = { 'grant_type': 'password',
-        client_id: this.client_id,
-        client_secret: this.client_secret,
+        client_id: process.env.CLIENT_ID,
+        client_secret: process.env.CLIENT_SECRET,
         username,
         password
       };
@@ -43,10 +39,10 @@ export default {
       );
     },
     async logout(token) {
-      var url = this.base_url + '/o/revoke_token/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/o/revoke_token/'
       var data = { 'grant_type': 'password',
-        client_id: this.client_id,
-        client_secret: this.client_secret,
+        client_id: process.env.CLIENT_ID,
+        client_secret: process.env.CLIENT_SECRET,
         token
       };
       data = qs.stringify(data)
@@ -68,45 +64,45 @@ export default {
         mobile_phone_number,
         remote_pilot_certificate_number,
         first_name, last_name}
-      var url = this.base_url + '/pilot/register/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/pilot/register/'
       return await axios.post(url,body);
     },
     async get_user_info(token, id) {
-      var url = this.base_url + '/user/get/?id='+id
+      var url = process.env.BUSINESS_LOGIC_HOST + '/user/get/?id='+id
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async get_pilot_info(token, id) {
-      var url = this.base_url + '/pilot/get/?id='+id
+      var url = process.env.BUSINESS_LOGIC_HOST + '/pilot/get/?id='+id
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async get_current_user_info(token) {
-      var url = this.base_url + '/user/get_current/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/user/get_current/'
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async update_user_info(user_info, token) {
-      var url = this.base_url + '/user/update/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/user/update/'
       return await axios.post(url,user_info, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async update_pilot_info(pilot_info, token) {
-      var url = this.base_url + '/pilot/update/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/pilot/update/'
       return await axios.post(url,pilot_info, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async forgot_password(email) {
-      var url = this.base_url + '/user/forgot_password/?email='+email
+      var url = process.env.BUSINESS_LOGIC_HOST + '/user/forgot_password/?email='+email
       return await axios.get(url);
     },
     async change_password(old_password, new_password, token) {
-      var url = this.base_url + '/user/change_password/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/user/change_password/'
       var body = {old_password, new_password}
       return await axios.post(url,body, {
         headers: {'Authorization': 'Bearer ' + token}
@@ -114,13 +110,13 @@ export default {
     },
     //DRONE API CALLS
     async get_user_drones(token){
-      var url = this.base_url + '/drone/get_user_drones/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/drone/get_user_drones/'
       return await axios.get(url, {
           headers: {'Authorization': 'Bearer ' + token}
         });
     },
     async register_drone(faa_registration_number, description, manufacturer, type, color, name, token) {
-      var url = this.base_url + '/drone/register_drone/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/drone/register_drone/'
       var body = {faa_registration_number, description, manufacturer, type,
               color, name}
       return await axios.post(url,body, {
@@ -128,7 +124,7 @@ export default {
         });
     },
     async delete_drone(drone_array, token) {
-      var url = this.base_url + '/drone/delete_drone/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/drone/delete_drone/'
       return await axios.post(url,drone_array, {
         headers: {'Authorization': 'Bearer ' + token}
       });
@@ -139,7 +135,7 @@ export default {
      * @param {*} token 
      */
     async edit_drone_details(drone, token) {
-      var url = this.base_url + '/drone/edit_drone_details/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/drone/edit_drone_details/'
       return await axios.post(url,drone, {
         headers: {'Authorization': 'Bearer ' + token}
       });
@@ -149,79 +145,79 @@ export default {
     async register_mission(title, area, description, starts_at, ends_at, type, token) {
       var body = {'title': title, 'area': area, 'description': description,
                   'starts_at': starts_at, 'ends_at': ends_at, 'type': type}
-      var url = this.base_url + '/flight/register/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/flight/register/'
       return await axios.post(url,body,{
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async get_mission_drones(mission_id, token) {
       var body = {'mission_id': mission_id}
-      var url = this.base_url + '/flight/get_drones/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/flight/get_drones/'
       return await axios.post(url,body, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async get_mission_info(mission_id, token){
       var body = {'mission_id': mission_id}
-      var url = this.base_url + '/flight/get_info/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/flight/get_info/'
       return await axios.post(url, body, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async add_drone_to_mission(drone_id, mission_id, operator_id, token) {
       var body = {drone_id, mission_id, operator_id}
-      var url = this.base_url + '/flight/add_drone/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/flight/add_drone/'
       return await axios.post(url,body, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async remove_drone_from_mission(drone_id, mission_id, token) {
       var body = {drone_id, mission_id}
-      var url = this.base_url + '/flight/remove_drone/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/flight/remove_drone/'
       return await axios.post(url,body, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async get_missions(token){
-      var url = this.base_url + '/flight/get/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/flight/get/'
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async post_get_missions(filters, token){
-      var url = this.base_url + '/flight/get/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/flight/get/'
       return await axios.post(url, {filters}, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async get_missions_post(start_datetime, end_datetime, token){
       var body = {start_datetime, end_datetime}
-      var url = this.base_url + '/flight/get/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/flight/get/'
       return await axios.post(url,body, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async delete_mission(mission_id, token) {
       var body = {'mission_id': mission_id}
-      var url = this.base_url + '/flight/delete/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/flight/delete/'
       return await axios.post(url,body, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async get_current_missions(token){
-      var url = this.base_url + '/flight/get_current/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/flight/get_current/'
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async get_past_missions(token){
-      var url = this.base_url + '/flight/get_past/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/flight/get_past/'
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async get_upcoming_missions(token){
-      var url = this.base_url + '/flight/get_upcoming/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/flight/get_upcoming/'
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer '+token}
       });
@@ -244,13 +240,13 @@ export default {
     //   'ends_at': <datetime>
     // }
     async edit_mission_details(details, token) {
-      var url = this.base_url + '/flight/edit/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/flight/edit/'
       return await axios.post(url,details, {
         headers: {'Authorization': 'Bearer '+token}
       });
     },
     async edit_clearance(mission_id,new_clearance_state, message, token) {
-      var url = this.base_url + '/flight/edit_clearance/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/flight/edit_clearance/'
       var body = {'mission_id' : mission_id, 'state': new_clearance_state,
                   'message': message}
       return await axios.post(url,body, {
@@ -258,7 +254,7 @@ export default {
       });
     },
     async is_government_official(token) {
-      var url = this.base_url + '/department/is_government_official/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/department/is_government_official/'
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer ' + token}
       });
@@ -266,63 +262,63 @@ export default {
     //DEPARTMENT CALLS
     async flight_histogram(department_id, start_day, end_day, token){
       var body = {department_id, start_day, end_day}
-      var url = this.base_url + '/department/flight_histogram/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/department/flight_histogram/'
       return await axios.post(url,body, {
         headers: {'Authorization': 'Bearer '+token}
       });
     },
     async message_pilots(message, department_name, token){
       var body = {message, department_name}
-      var url = this.base_url + '/department/message_jurisdiction/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/department/message_jurisdiction/'
       return await axios.post(url,body, {
         headers: {'Authorization': 'Bearer '+token}
       });
     },
     async get_user_departments(token) {
-      var url = this.base_url + '/department/get_user_departments/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/department/get_user_departments/'
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer '+token}
       });
     },
     async get_department_info(token, department_id){
-      var url = this.base_url + `/department/info/?id=${department_id}`
+      var url = process.env.BUSINESS_LOGIC_HOST + `/department/info/?id=${department_id}`
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer '+token}
       });
     },
     async get_departments(token) {
-      var url = this.base_url + "/department/get/"
+      var url = process.env.BUSINESS_LOGIC_HOST + "/department/get/"
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer '+token}
       });
     },
     // NOTIFICATIONS
     async unread_notification_list(token) {
-      var url = this.base_url + '/notification/unread/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/notification/unread/'
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer '+token}
       });
     },
     async notification_feed(token, count) {
-      var url = this.base_url + '/notification/feed/?count=' + count
+      var url = process.env.BUSINESS_LOGIC_HOST + '/notification/feed/?count=' + count
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer '+token}
       });
     },
     async unread_count(token) {
-      var url = this.base_url + '/inbox/notifications/api/unread_count/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/inbox/notifications/api/unread_count/'
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer '+token}
       });
     },
     async read_all(token) {
-      var url = this.base_url + '/notification/read_all/'
+      var url = process.env.BUSINESS_LOGIC_HOST + '/notification/read_all/'
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer '+token}
       });
     },
     async read(token, notification_id) {
-      var url = `${this.base_url}/notification/read/?id=${notification_id}`
+      var url = `${process.env.BUSINESS_LOGIC_HOST}/notification/read/?id=${notification_id}`
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer '+token}
       });
