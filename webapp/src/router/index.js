@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import API from '@/mixins/API'
 
 
 const routerOptions = [
@@ -48,21 +47,22 @@ const router = new Router({
 
 router.beforeEach(async (to, from, next) => {
   if(to.meta.mustBeLoggedOut) {
+    console.log('aqui')
+    console.log( process.env.VUE_APP_BUSINESS_LOGIC_HOST)
     const access_token = window.localStorage.getItem('access_token')
-    var api_data = API.data()
-    var url = api_data.base_url + '/user/is_logged_in/'
+    var url = process.env.VUE_APP_BUSINESS_LOGIC_HOST + '/user/is_logged_in/'
     const response = await axios.get(url, {
       headers: {'Authorization': 'Bearer ' + access_token}
     });
     if (JSON.stringify(response.data) == 'true') {
       next('/homepage')
     }
+    console.log('yes')
   }
 
   if(to.meta.mustBeLoggedIn) {
     const access_token = window.localStorage.getItem('access_token')
-    var api_data = API.data()
-    var url = api_data.base_url + '/user/is_logged_in/'
+    var url = process.env.VUE_APP_BUSINESS_LOGIC_HOST + '/user/is_logged_in/'
     const response = await axios.get(url, {
       headers: {'Authorization': 'Bearer ' + access_token}
     });

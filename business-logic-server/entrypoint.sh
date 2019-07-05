@@ -13,5 +13,6 @@ fi
 cd business-logic-server && python3.7 manage.py makemigrations icarus_backend
 python3.7 manage.py migrate
 echo "MIGRATED"
+python3.7 manage.py createsuperuser --username admin --email admin@email.com
 
 exec "$@"

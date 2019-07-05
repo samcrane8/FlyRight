@@ -2,126 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1708c7ab-b3c4-4b33-8b58-7db5326eedc3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/webapp/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/business-logic-server/create_superuser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webapp/entrypoint.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-logic-server/flyright-nginx-site" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/flyright-nginx-site" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-logic-server/install_on_redhat_enterprise_7.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-logic-server/install_on_ubuntu_16_04.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/business-logic-server/run_server_on_ubuntu_16_04.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/business-logic-server/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/business-logic-server/entrypoint.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/.babelrc" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/.babelrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/.postcssrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/.postcssrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/build/build.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/build/build.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/build/check-versions.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/build/check-versions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/build/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/build/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/build/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/build/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/build/vue-loader.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/build/vue-loader.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/build/webpack.base.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/build/webpack.base.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/build/webpack.dev.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/build/webpack.dev.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/build/webpack.prod.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/build/webpack.prod.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/build/webpack.test.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/build/webpack.test.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/config/dev.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/config/dev.env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/config/prod.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/config/prod.env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/assets/drone.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/assets/drone.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/assets/earth.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/assets/earth.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/assets/earth_transparent.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/assets/earth_transparent.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/assets/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/assets/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/assets/missionRadar.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/assets/missionRadar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/assets/noMissionImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/assets/noMissionImage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/assets/sar_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/assets/sar_logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/assets/sar_only_A_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/assets/sar_only_A_logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/assets/sarlogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/assets/sarlogo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/assets/sarlogo2.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/assets/sarlogo2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/assets/trophy.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/assets/trophy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/components/DarrenDatetimePicker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/DarrenDatetimePicker.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/components/DateTimePicker.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/DateTimePicker.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/components/Drones.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/Drones.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/components/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/Footer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/components/IcarusAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/IcarusAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/components/MapThumbnail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/MapThumbnail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/components/NotificationListItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/NotificationListItem.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/config/example.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/config/example.env.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/mixins/API.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/mixins/API.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/mixins/SchedulingRuleAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/mixins/SchedulingRuleAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/store/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/store/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/store/getters.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/store/getters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/store/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/store/mutations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/store/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/store/state.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/stylus/main.styl" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/stylus/main.styl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/stylus/theme.styl" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/stylus/theme.styl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/DronesPage/DroneSidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/DronesPage/DroneSidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/DronesPage/DronesPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/DronesPage/DronesPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/DronesPage/DronesTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/DronesPage/DronesTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/EditFlightPage/EditFlightMap.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/EditFlightPage/EditFlightMap.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/EditFlightPage/EditFlightPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/EditFlightPage/EditFlightPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/EditFlightPage/EditFlightToolbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/EditFlightPage/EditFlightToolbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/EducationPage/EducationPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/EducationPage/EducationPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/FlightDetailsPage/DroneCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/FlightDetailsPage/DroneCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/FlightDetailsPage/FlightDetailsChat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/FlightDetailsPage/FlightDetailsChat.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/FlightDetailsPage/FlightDetailsDrones.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/FlightDetailsPage/FlightDetailsDrones.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/FlightDetailsPage/FlightDetailsInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/FlightDetailsPage/FlightDetailsInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/FlightDetailsPage/FlightDetailsPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/FlightDetailsPage/FlightDetailsPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/FlightsPage/FlightFilters/FiltersCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/FlightsPage/FlightFilters/FiltersCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/FlightsPage/FlightTable/CommanderInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/FlightsPage/FlightTable/CommanderInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/FlightsPage/FlightTable/DescriptionTab.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/FlightsPage/FlightTable/DescriptionTab.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/FlightsPage/FlightTable/FlightsTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/FlightsPage/FlightTable/FlightsTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/FlightsPage/FlightsPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/FlightsPage/FlightsPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/HomePage/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/HomePage/HomePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/HomePage/MissionCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/HomePage/MissionCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/HomePage/MissionCarousel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/HomePage/MissionCarousel.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/HomePage/NoMissionCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/HomePage/NoMissionCard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/LandingPage/FeaturesSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/LandingPage/FeaturesSection.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/LandingPage/FirstSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/LandingPage/FirstSection.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/LandingPage/LandingPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/LandingPage/LandingPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/LandingPage/PrivacyPolicy.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/LandingPage/PrivacyPolicy.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/LandingPage/RegistrationStepper.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/LandingPage/RegistrationStepper.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/LandingPage/TermsOfUse.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/LandingPage/TermsOfUse.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/LoginPage/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/LoginPage/LoginPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/NewFlightPage/NewFlightMap.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/NewFlightPage/NewFlightMap.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/NewFlightPage/NewFlightPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/NewFlightPage/NewFlightPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/NewFlightPage/NewFlightToolbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/NewFlightPage/NewFlightToolbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/OfficialDashboardPage/DashboardGraphs/FlightHistogram.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/OfficialDashboardPage/DashboardGraphs/FlightHistogram.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/OfficialDashboardPage/DashboardStats.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/OfficialDashboardPage/DashboardStats.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/OfficialDashboardPage/JurisdictionMap.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/OfficialDashboardPage/JurisdictionMap.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/OfficialDashboardPage/MessageJurisdiction.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/OfficialDashboardPage/MessageJurisdiction.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/OfficialDashboardPage/OfficialDashboardPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/OfficialDashboardPage/OfficialDashboardPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/PrivacyPage/PrivacyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/PrivacyPage/PrivacyPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/SettingsPage/SettingsContact.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/SettingsPage/SettingsContact.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/SettingsPage/SettingsLicenses.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/SettingsPage/SettingsLicenses.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/SettingsPage/SettingsOfficial.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/SettingsPage/SettingsOfficial.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/SettingsPage/SettingsPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/SettingsPage/SettingsPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/SettingsPage/SettingsPilot.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/SettingsPage/SettingsPilot.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/src/views/SettingsPage/SettingsProfile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/views/SettingsPage/SettingsProfile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/static/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/static/.gitkeep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/static/drone_image_1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/static/drone_image_1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/static/drone_landing_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/static/drone_landing_image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/static/favicon-32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/static/favicon-32x32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/static/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/static/favicon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/static/favicon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/static/favicon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/static/firstPic.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/static/firstPic.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/static/fixed_wing_clipart.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/static/fixed_wing_clipart.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/static/logo_black.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/static/logo_black.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/static/quadrotor_clipart.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/static/quadrotor_clipart.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/static/result.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/static/result.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/static/secondPic.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/static/secondPic.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/static/v.png" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/static/v.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/icarus-web-app/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/push_dev.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/push_prod.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/setup.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/build/webpack.dev.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/build/webpack.dev.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/config/dev.env.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/config/dev.env.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/config/example.env.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/mixins/API.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/mixins/API.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/mixins/SchedulingRuleAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/mixins/SchedulingRuleAPI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -132,42 +28,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/Dockerfile">
+        <entry file="file://$PROJECT_DIR$/webapp/config/dev.env.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="150">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/entrypoint.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/business-logic-server/entrypoint.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+        <entry file="file://$PROJECT_DIR$/business-logic-server/create_superuser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="11" lean-forward="true" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/build/build.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/config/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="19" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/src/mixins/API.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+            <state relative-caret-position="45">
+              <caret line="3" column="133" selection-start-line="3" selection-start-column="133" selection-end-line="3" selection-end-column="133" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -175,34 +69,86 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/business-logic-server/icarus_backend/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="10" lean-forward="true" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+            <state relative-caret-position="60">
+              <caret line="49" column="1" lean-forward="true" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+              <folding>
+                <element signature="e#315#324#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapp/src/mixins/SchedulingRuleAPI.js">
+        <entry file="file://$PROJECT_DIR$/business-logic-server/users/tests.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/business-logic-server/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="47" />
+            <state relative-caret-position="45">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/business-logic-server/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="23" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapp/src/App.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2670">
+              <caret line="178" column="10" selection-start-line="178" selection-start-column="10" selection-end-line="178" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>secrets</find>
-      <find>data</find>
       <find>this</find>
       <find>this.base_url</find>
+      <find>process.env.BUSINESS_LOGIC_HOST</find>
+      <find>transform-inline</find>
+      <find>data</find>
+      <find>mixins</find>
+      <find>this.data</find>
+      <find>API</find>
+      <find>api_data</find>
     </findStrings>
     <replaceStrings>
       <replace>process.env.</replace>
       <replace>process.env.BUSINESS_LOGIC_HOST</replace>
+      <replace>process.env.VUE_APP_BUSINESS_LOGIC_HOST</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/webapp/src</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -230,16 +176,24 @@
         <option value="$PROJECT_DIR$/business-logic-server/icarus_backend/flight/tasks.py" />
         <option value="$PROJECT_DIR$/business-logic-server/icarus_backend/department/tasks.py" />
         <option value="$PROJECT_DIR$/business-logic-server/icarus_backend/gateways/SlackBotGateway.py" />
-        <option value="$PROJECT_DIR$/business-logic-server/entrypoint.sh" />
         <option value="$PROJECT_DIR$/business-logic.env" />
         <option value="$PROJECT_DIR$/db.env" />
         <option value="$PROJECT_DIR$/webapp/.gitignore" />
-        <option value="$PROJECT_DIR$/webapp/Dockerfile" />
-        <option value="$PROJECT_DIR$/webapp/src/mixins/SchedulingRuleAPI.js" />
-        <option value="$PROJECT_DIR$/webapp/src/mixins/API.js" />
         <option value="$PROJECT_DIR$/business-logic-server/icarus_backend/settings.py" />
         <option value="$PROJECT_DIR$/webapp/config/index.js" />
+        <option value="$PROJECT_DIR$/webapp/src/mixins/SchedulingRuleAPI.js" />
+        <option value="$PROJECT_DIR$/webapp/build/webpack.dev.conf.js" />
+        <option value="$PROJECT_DIR$/webapp/.babelrc" />
+        <option value="$PROJECT_DIR$/webapp/index.html" />
+        <option value="$PROJECT_DIR$/webapp/Dockerfile" />
+        <option value="$PROJECT_DIR$/webapp/entrypoint.sh" />
+        <option value="$PROJECT_DIR$/webapp/src/App.vue" />
+        <option value="$PROJECT_DIR$/webapp/src/mixins/API.js" />
+        <option value="$PROJECT_DIR$/webapp/src/router/index.js" />
+        <option value="$PROJECT_DIR$/webapp/config/dev.env.js" />
+        <option value="$PROJECT_DIR$/business-logic-server/entrypoint.sh" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/business-logic-server/create_superuser.py" />
       </list>
     </option>
   </component>
@@ -247,7 +201,7 @@
     <option name="x" value="993" />
     <option name="y" value="25" />
     <option name="width" value="927" />
-    <option name="height" value="1055" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -267,17 +221,6 @@
               <item name="FlyRight" type="462c0819:PsiDirectoryNode" />
               <item name="business-logic-server" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="FlyRight" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlyRight" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlyRight" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlyRight" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -287,21 +230,21 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/webapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/webapp/src" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/webapp" />
+      <recent name="$PROJECT_DIR$/business-logic-server" />
+      <recent name="$PROJECT_DIR$/docker-compose" />
+      <recent name="$PROJECT_DIR$/docker" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/webapp" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/nginx" />
       <recent name="$PROJECT_DIR$/business-logic-server" />
       <recent name="$PROJECT_DIR$/business-logic-server/docker" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/webapp" />
-      <recent name="$PROJECT_DIR$/business-logic-server" />
-      <recent name="$PROJECT_DIR$/docker-compose" />
-      <recent name="$PROJECT_DIR$/docker" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -333,7 +276,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13169399" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1989071" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -343,10 +286,10 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Docker" order="7" visible="true" weight="0.32829374" />
+      <window_info anchor="bottom" id="Docker" order="7" visible="true" weight="0.3509719" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50054646" side_tool="true" weight="0.33801296" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49945354" weight="0.4276458" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49945354" weight="0.31317493" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -354,7 +297,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/docker-compose/entrypoint.dev.sh" />
     <entry file="file://$PROJECT_DIR$/business-logic-server/dev.Dockerfile" />
     <entry file="file://$PROJECT_DIR$/business-logic-server/docker/entrypoint.dev.sh" />
     <entry file="file://$PROJECT_DIR$/Dockerfile" />
@@ -432,13 +374,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/business-logic-server/install_on_ubuntu_16_04.sh" />
-    <entry file="file://$PROJECT_DIR$/business-logic-server/entrypoint.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/business-logic.env">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -465,56 +400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/config/example.env.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/mixins/SchedulingRuleAPI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/mixins/API.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/business-logic-server/icarus_backend/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="10" lean-forward="true" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/business-logic-server/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/main.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/build/webpack.dev.conf.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/build/build.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/config/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -522,10 +407,176 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/config/prod.env.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json" />
+    <entry file="file://$PROJECT_DIR$/webapp/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/mixins/SchedulingRuleAPI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="26" column="41" lean-forward="true" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/.babelrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/config/example.env.js" />
+    <entry file="file://$PROJECT_DIR$/webapp/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/build/build.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-291" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/build/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1206" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/build/vue-loader.conf.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/main.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/build/webpack.dev.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-231">
+          <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/views/LandingPage/LandingPage.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="51" column="18" lean-forward="true" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/mixins/API.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/components/MapThumbnail.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="53" column="43" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/entrypoint.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2670">
+          <caret line="178" column="10" selection-start-line="178" selection-start-column="10" selection-end-line="178" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/config/dev.env.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/business-logic-server/entrypoint.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/business-logic-server/users/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/business-logic-server/icarus_backend/user/UserController.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/business-logic-server/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/business-logic-server/icarus_backend/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="49" column="1" lean-forward="true" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+          <folding>
+            <element signature="e#315#324#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/business-logic-server/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/docker-compose.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="11" lean-forward="true" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+        <state relative-caret-position="435">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/business-logic-server/create_superuser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="133" selection-start-line="3" selection-start-column="133" selection-end-line="3" selection-end-column="133" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

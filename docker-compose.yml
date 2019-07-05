@@ -25,6 +25,9 @@ services:
       - DATABASE=postgres
       - EMAIL_ADDRESS=example@place.com
       - SLACKBOT_WEBHOOK_URL=http://something.slack.com
+      - SUPERUSER_USERNAME=admin
+      - SUPERUSER_PASSWORD=password
+      - SUPERUSER_EMAIL=admin@password.com
     env_file: business-logic.env
     volumes:
       - .:/usr/src/app
@@ -40,11 +43,13 @@ services:
     environment:
       - HOST=0.0.0.0
       - PORT=8080
-      - BUSINESS_LOGIC_HOST=business-logic
+      - VUE_APP_BUSINESS_LOGIC_HOST=business-logic:8000
       - CHOKIDAR_USEPOLLING=true
       - CLIENT_ID=1
       - CLIENT_SECRET=2
     env_file: webapp.env
+    volumes:
+      - .:/app
     ports:
       - 8080:8080
     expose:
