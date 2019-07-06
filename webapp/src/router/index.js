@@ -57,7 +57,6 @@ router.beforeEach(async (to, from, next) => {
     if (JSON.stringify(response.data) == 'true') {
       next('/homepage')
     }
-    console.log('yes')
   }
 
   if(to.meta.mustBeLoggedIn) {

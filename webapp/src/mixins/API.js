@@ -16,13 +16,13 @@ export default {
   methods: {
     //USER API CALLS
     async isLoggedIn(token) {
-      console.log(process.env)
     	var url = process.env.VUE_APP_BUSINESS_LOGIC_HOST + '/user/is_logged_in/'
       return await axios.get(url, {
         headers: {'Authorization': 'Bearer ' + token}
       });
     },
     async login(username, password) {
+      console.log(process.env)
       var url = process.env.VUE_APP_BUSINESS_LOGIC_HOST + '/o/token/'
       var data = { 'grant_type': 'password',
         client_id: process.env.CLIENT_ID,
@@ -30,6 +30,7 @@ export default {
         username,
         password
       };
+      console.log(JSON.stringify(data))
       data = qs.stringify(data)
       return await axios(
         {
