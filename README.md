@@ -10,22 +10,40 @@ Here is a video demonstration: [https://www.youtube.com/watch?v=AOCtnlbaQSA&feat
 
 ## Setup
 
-There are two major projects within this repository. The business-logic-server, and the webapplication.
-The readmes in each folder will explain how to set up the respective projects. 
+(Dev) Setup has become lightning fast with the new docker-compose scripts. We still need to do some work on prod deployments.
+
+### Docker and Docker-Compose
+
+To work with this codebase you will need docker: https://docs.docker.com/install/
+
+If you have not used docker before, it makes code deployment infinitely easier but putting your code into "containers", allowing
+you to make sure that everytime you deploy code the environment is the same. It also makes it easy to do everything in one line.
+
+As well, you will need docker-compose: https://docs.docker.com/compose/install/
+
+Docker-Compose takes it one step further: it allows you to orchestrate many containers together in one deployment.
+
+### Build
+
+Once you have docker and docker-compose installed, the rest is pretty straightforward.
+
+Type this command: `docker-compose up -d`
+
+Note: docker-compose up only builds new container images if there is not one there already. if you want to force it to rebuild, run it with
+this flag: `docker-compose up -d --build`
+
+The one command above is enough to get everything setup. Just wait a bit as everything installs.
+
+Now, if you want to take it down, type this command: `docker-compose down`
+
+And if you want to delete the volumes created with it, run it with this flag: `docker-compose down -v`
+
+And that is it! Hot reloading works with these containers, so as you change code in your IDE, the containers will update (the caveat
+being some changes will require you to restart the server, like changes to the process.env values in the webapp server, but 99% of them can use hot reloading)
 
 ## API
 
 Currently we do not have a postman workspace because we are cheap. We do have a readme with endpoint details [here](https://github.com/samcrane8/FlyRight/tree/master/docs). We generate the documents with a project called [Postdown](https://github.com/TitorX/Postdown). The only issue is that Postdown does not currently handle Folders nor empty description/queries properly, so I had to fork the repo. I have a pull request waiting but in the meantime, you can use my fork [here](https://github.com/samcrane8/Postdown).
-
-## Testing
-
-If you are working on the webapplication or a potential future mobile app, you may want to use the testing server such that you
-do not have to run the business-logic server yourself.
-
-That server can be found here: `devapi.icarusmap.com`.
-
-Authentication is done via OAuth so you will need to generate custom values for `client_id` and `client_secret` to connect.
-To do so, follow the tutorial found here in the django-oauth-toolkit documentation: [https://django-oauth-toolkit.readthedocs.io/en/latest/tutorial/tutorial_01.html](https://django-oauth-toolkit.readthedocs.io/en/latest/tutorial/tutorial_01.html).
 
 ## Partners
 
