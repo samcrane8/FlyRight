@@ -10,7 +10,7 @@ I have been working for the past year and a half with the Georgia Tech Police De
 ## Videos
 
 - Flight registration demonstration: https://www.youtube.com/watch?v=AOCtnlbaQSA&feature=youtu.be
-- Docker Installation Tutorial: https://youtu.be/4RKAR-1bODA
+- Docker Setup Tutorial: https://youtu.be/4RKAR-1bODA
 
 ## Setup
 
