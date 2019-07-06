@@ -80,7 +80,9 @@
         var mapbox_layer = new L.TileLayer(this.mapbox_url);
         this.map = L.map('map').addLayer(mapbox_layer);
         this.map.zoomControl.setPosition('bottomright');
-        var juri_polygon = L.polygon(this.jurisdiction.area.features[0].geometry.coordinates)
+        var points = this.jurisdiction.area.features[0].geometry.coordinates;
+        var emit_points = points.map(x => [x[1], x[0]])
+        var juri_polygon = L.polygon(emit_points)
         this.map.fitBounds(juri_polygon.getBounds())
         juri_polygon.addTo(this.map);
 			})
