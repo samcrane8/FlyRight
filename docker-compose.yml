@@ -15,6 +15,7 @@ services:
       dockerfile: Dockerfile
     command: python3.7 manage.py runserver 0.0.0.0:8000
     environment:
+      - DJANGO_DEBUG=enabled
       - SQL_DATABASE=gis
       - FLYRIGHT_BUILD=DEV
       - SQL_HOST=db
@@ -28,6 +29,7 @@ services:
       - SUPERUSER_USERNAME=admin
       - SUPERUSER_PASSWORD=password
       - SUPERUSER_EMAIL=admin@password.com
+      - SLACKBOT_ENABLED=disabled
     env_file: business-logic.env
     volumes:
       - .:/usr/src/app

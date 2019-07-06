@@ -11,7 +11,6 @@ class Department(models.Model):
     # clearance
 
     def as_geojson(self):
-        coords = [[x[1],x[0]] for x in self.area[0].coords]
         return {
             "type": "FeatureCollection",
             "features": [
@@ -21,7 +20,7 @@ class Department(models.Model):
                         "name": self.name
                     },
                     "geometry": {
-                        "coordinates": [coords],
+                        "coordinates": self.area[0].coords,
                         "type": "Polygon"
                     }
                 }

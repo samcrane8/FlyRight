@@ -144,9 +144,7 @@ class SlackExceptionHandler(AdminEmailHandler):
             'payload': json.dumps({'main_text': main_text, 'attachments': attachments}),
         }
 
-        # setup channel webhook
-        webhook_url = secrets['webhook_url']
-
         # send it
-        if secrets['slack_log']:
+        if os.environ.get('SLACKBOT_ENABLED', 'disabled') == 'enabled':
+            webhook_url = os.environ.get('SLACKBOT_WEBHOOK_URL', 'DEV')
             r = requests.post(webhook_url, data=data)
