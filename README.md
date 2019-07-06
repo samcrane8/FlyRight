@@ -11,6 +11,7 @@ I have been working for the past year and a half with the Georgia Tech Police De
 
 - Flight registration demonstration: https://www.youtube.com/watch?v=AOCtnlbaQSA&feature=youtu.be
 - Docker Setup Tutorial: https://youtu.be/4RKAR-1bODA
+- Using Postman with FlyRight: https://www.youtube.com/watch?v=i7WmmnFCjUw&list=PLUUN7t5qIozu7Z-5AWewMwrVWcxL0QBaY&index=3
 
 ## Setup
 
