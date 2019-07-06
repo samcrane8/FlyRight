@@ -49,7 +49,9 @@ being some changes will require you to restart the server, like changes to the p
 
 ## API
 
-Currently we do not have a postman workspace because we are cheap. We do have a readme with endpoint details [here](https://github.com/samcrane8/FlyRight/tree/master/docs). We generate the documents with a project called [Postdown](https://github.com/TitorX/Postdown). The only issue is that Postdown does not currently handle Folders nor empty description/queries properly, so I had to fork the repo. I have a pull request waiting but in the meantime, you can use my fork [here](https://github.com/samcrane8/Postdown).
+Currently we do not have a postman workspace because we are cheap. However if you download the postman collection and environment variables you can interact with the API from postman.
+
+We also have a readme with endpoint details [here](https://github.com/samcrane8/FlyRight/tree/master/docs). We generate the documents with a project called [Postdown](https://github.com/TitorX/Postdown). The only issue is that Postdown does not currently handle Folders nor empty description/queries properly, so I had to fork the repo. I have a pull request waiting but in the meantime, you can use my fork [here](https://github.com/samcrane8/Postdown).
 
 ## Partners
 
