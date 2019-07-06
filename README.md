@@ -22,7 +22,7 @@ I have been working for the past year and a half with the Georgia Tech Police De
 
 To work with this codebase you will need docker: https://docs.docker.com/install/
 
-If you have not used docker before, it makes code deployment infinitely easier but putting your code into "containers", allowing
+If you have not used docker before, it makes code deployment infinitely easier by putting your code into "containers", allowing
 you to make sure that everytime you deploy code the environment is the same. It also makes it easy to do everything in one line.
 
 As well, you will need docker-compose: https://docs.docker.com/compose/install/
