@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=osiris_db
+    env_file: db.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  web:
+    build: ..
+    command: coverage run --source='osiris_server/' manage.py test --pattern="Test*.py" osiris_server/
+    environment:
+      - SQL_DATABASE=osiris_db
+      - SQL_HOST=db
+      - SQL_PORT=5432
+      - SQL_USER=postgres
+      - SQL_ENGINE=django.db.backends.postgresql
+      - DATABASE=postgres
+    env_file: web.env
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 8000:8000
+
+volumes:
+  postgres_data:

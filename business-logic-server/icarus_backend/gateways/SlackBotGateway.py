@@ -1,10 +1,9 @@
-import requests
+import requests, os
 import json
-from icarus_backend.secrets import secrets
 
 is_prod = True
 
-webhook_url = secrets['webhook_url']
+webhook_url = os.environ.get('SLACKBOT_WEBHOOK_URL', '')
 
 
 def post_health(message):

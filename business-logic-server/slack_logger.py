@@ -1,12 +1,11 @@
 import requests
-import json
+import json, os
 import time
 import math
 from copy import copy
 from django.conf import settings
 from django.utils.log import AdminEmailHandler
 from django.views.debug import ExceptionReporter
-from icarus_backend.secrets import secrets
 
 
 class SlackExceptionHandler(AdminEmailHandler):
@@ -65,7 +64,7 @@ class SlackExceptionHandler(AdminEmailHandler):
                 'fields': [
                     {
                         "title": "Build",
-                        "value": secrets["build"],
+                        "value": os.environ.get('FLYRIGHT_BUILD', 'DEV'),
                         "short": True,
                     },
                     {
