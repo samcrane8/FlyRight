@@ -66,7 +66,7 @@ If you would like to help, please send me an email (samcrane8@gmail.com) with th
 #### To Do
 
 <ul>
-  <li> Docker container setup scripts.
+  <li> ~~Docker container setup scripts.~~
   <li> Unit Testing on the Front-End
   <li> Comprehensive unit-testing on the back-end server.
   <li> iOS app implementation.
