@@ -1,7 +1,7 @@
+import os
 from icarus_backend.celery import app
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
-from icarus_backend.secrets import secrets
 
 
 class DepartmentTasks:
@@ -16,7 +16,7 @@ class DepartmentTasks:
             'gov_off': gov_official_username,
         })
         email = EmailMessage(
-            mail_subject, message, secrets["email"]["from"], to=[email]
+            mail_subject, message, os.environ.get('EMAIL_ADDRESS', 'DEV'), to=[email]
         )
         email.send()
 

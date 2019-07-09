@@ -15,8 +15,6 @@ import sys
 from django.utils.log import DEFAULT_LOGGING
 from celery.schedules import crontab
 
-from icarus_backend.secrets import secrets
-
 LOGGING = DEFAULT_LOGGING
 
 LOGGING['handlers']['slack_admins'] = {
@@ -40,7 +38,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zcr39#y7%e9a$r+n=72uw6@2k_o*fw-)so&fl&@_+1v0v+@in@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = secrets['debug']
+DEBUG = os.environ.get('DJANGO_DEBUG', 'enabled') == 'enabled'
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
@@ -52,11 +50,11 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 EMAIL_USE_SSL = False
-EMAIL_USE_TLS = secrets['email']['tls']
-EMAIL_HOST = secrets['email']['host']
-EMAIL_HOST_USER = secrets['email']['username']
-EMAIL_HOST_PASSWORD = secrets['email']['password']
-EMAIL_PORT = secrets['email']['port']
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', False)
+EMAIL_HOST = os.environ.get('EMAIL_HOST', '')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+EMAIL_PORT = os.environ.get('EMAIL_PORT', '')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -124,26 +122,14 @@ WSGI_APPLICATION = 'icarus_backend.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': secrets["database"]["name"],
-        'USER': secrets["database"]["user"],
-        'PASSWORD': secrets["database"]["password"],
-        'HOST': secrets["database"]["host"],
-        'PORT': '',
+        'ENGINE': os.environ.get('SQL_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.environ.get('SQL_DATABASE', os.path.join(BASE_DIR, 'db.sqlite3')),
+        'USER': os.environ.get('SQL_USER', 'user'),
+        'PASSWORD': os.environ.get('SQL_PASSWORD', 'password'),
+        'HOST': os.environ.get('SQL_HOST', 'localhost'),
+        'PORT': os.environ.get('SQL_PORT', '5432'),
     }
-    # 'default': {
-    #     'ENGINE': 'django.contrib.gis.db.backends.postgis',
-    #     'NAME': 'icarus_db',
-    #     'USER': 'django_user',
-    #     'PASSWORD': 'ignorance_is_strength_war_is_peace_ingsoc',
-    #     'HOST': 'dev.icarusmap.com',
-    #     'PORT': '5432',
-    # }
 }
 
 # Password validation

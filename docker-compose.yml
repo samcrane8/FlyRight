@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+  db:
+    image: kartoza/postgis
+    environment:
+      - POSTGRES_PASS=postgres
+      - POSTGRES_USER=postgres
+    env_file: db.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  business-logic:
+    build:
+      context: business-logic-server
+      dockerfile: Dockerfile
+    command: python3.7 manage.py runserver 0.0.0.0:8000
+    environment:
+      - DJANGO_DEBUG=enabled
+      - SQL_DATABASE=gis
+      - FLYRIGHT_BUILD=DEV
+      - SQL_HOST=db
+      - SQL_PORT=5432
+      - SQL_USER=postgres
+      - SQL_PASSWORD=postgres
+      - SQL_ENGINE=django.contrib.gis.db.backends.postgis
+      - DATABASE=postgres
+      - EMAIL_ADDRESS=example@place.com
+      - SLACKBOT_WEBHOOK_URL=http://something.slack.com
+      - SUPERUSER_USERNAME=admin
+      - SUPERUSER_PASSWORD=password
+      - SUPERUSER_EMAIL=admin@password.com
+      - SLACKBOT_ENABLED=disabled
+    env_file: business-logic.env
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 8000:8000
+    expose:
+      - 8000
+  web:
+    build:
+      context: webapp
+      dockerfile: Dockerfile
+    command: yarn start
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8080
+      - VUE_APP_BUSINESS_LOGIC_HOST=business-logic:8000
+      - CHOKIDAR_USEPOLLING=true
+      - CLIENT_ID=1
+      - CLIENT_SECRET=2
+    env_file: webapp.env
+    volumes:
+      - .:/app
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
+
+volumes:
+  postgres_data:

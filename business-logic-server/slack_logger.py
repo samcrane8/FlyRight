@@ -1,12 +1,11 @@
 import requests
-import json
+import json, os
 import time
 import math
 from copy import copy
 from django.conf import settings
 from django.utils.log import AdminEmailHandler
 from django.views.debug import ExceptionReporter
-from icarus_backend.secrets import secrets
 
 
 class SlackExceptionHandler(AdminEmailHandler):
@@ -65,7 +64,7 @@ class SlackExceptionHandler(AdminEmailHandler):
                 'fields': [
                     {
                         "title": "Build",
-                        "value": secrets["build"],
+                        "value": os.environ.get('FLYRIGHT_BUILD', 'DEV'),
                         "short": True,
                     },
                     {
@@ -145,9 +144,7 @@ class SlackExceptionHandler(AdminEmailHandler):
             'payload': json.dumps({'main_text': main_text, 'attachments': attachments}),
         }
 
-        # setup channel webhook
-        webhook_url = secrets['webhook_url']
-
         # send it
-        if secrets['slack_log']:
+        if os.environ.get('SLACKBOT_ENABLED', 'disabled') == 'enabled':
+            webhook_url = os.environ.get('SLACKBOT_WEBHOOK_URL', 'DEV')
             r = requests.post(webhook_url, data=data)

@@ -1,4 +1,5 @@
 import datetime
+import numpy as np
 from icarus_backend.flight.FlightModel import Flight
 from users.models import IcarusUser as User
 from icarus_backend.department.DepartmentModel import Department
@@ -12,6 +13,10 @@ class DepartmentController:
 
     @staticmethod
     def create(name, owner_id, area, airbosses=[], watch_commanders=[]) -> (int, dict):
+        numpy_area = np.asarray(area)
+        if not (len(numpy_area.shape) == 3 and numpy_area.shape[2] == 2):
+            return 400, {'message': 'Area is not properly formatted. Must have shape (-1, -1, 2).'}
+        area = [[x[1],x[0]] for x in area[0]]
         area = Polygon(area)
         department = Department.objects.filter(name=name).first()
         if department:
