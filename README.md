@@ -33,7 +33,9 @@ Docker-Compose takes it one step further: it allows you to orchestrate many cont
 
 Once you have docker and docker-compose installed, the rest is pretty straightforward.
 
-Type this command: `docker-compose up -d`
+First you are going to want to navigate to the webapp directory and run: `yarn install`
+
+Then return the root, and run this command: `docker-compose up -d`
 
 Note: docker-compose up only builds new container images if there is not one there already. if you want to force it to rebuild, run it with
 this flag: `docker-compose up -d --build`
