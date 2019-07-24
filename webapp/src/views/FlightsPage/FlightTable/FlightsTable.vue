@@ -154,7 +154,7 @@
                 <v-card-text>
                   <v-layout column>
                     <v-layout row v-if="props.item.can_edit_clearance" >
-                      <v-flex style="margin-top:5px;">
+                      <!-- <v-flex style="margin-top:5px;">
                         <v-text-field 
                           label="Write a short message to the commander to explain how you're setting the status."
                           multi-line
@@ -163,13 +163,49 @@
                         >
                         </v-text-field>
                       </v-flex>
-                      <v-select
-                        :items="clearance_states"
-                        v-model="currState"
-                        label="Set Clearance"
-                        single-line
-                        bottom
-                      ></v-select>
+                       -->
+                      
+                      <v-flex style="margin-top:5px;">
+                        <v-text-field 
+                          v-if="selected" 
+                          label="Write a short message to the commander to explain how you're setting the status."
+                          multi-line
+                          rows="3"
+                          v-model="selected"
+                        >
+                        </v-text-field>  
+                        <v-text-field 
+                          v-else 
+                          label="Write a short message to the commander to explain how you're setting the status."
+                          multi-line
+                          rows="3"
+                          v-model="props.item.clearance.message"
+                        >
+                        </v-text-field>
+                      </v-flex>
+                      <v-layout column>
+                        <select 
+                          v-model="selected"
+                          style="border:1px solid gray;
+                          border-radius:2px;"
+                          >
+                          <option 
+                            v-for="presetClearance in presetClearances" 
+                            :value="presetClearance.value"
+                            :key="presetClearance.text">
+                              {{ presetClearance.text }}
+                          </option>
+                        </select>
+                        <v-select
+                          :items="clearance_states"
+                          v-model="currState"
+                          label="Set Clearance"
+                          single-line
+                          bottom
+                        ></v-select>
+
+                      </v-layout>
+
                     </v-layout>
                     <v-layout row v-if="!props.item.can_edit_clearance" >
                       <v-flex style="margin-top:5px;">
@@ -261,6 +297,51 @@
           sortBy: 'created_at',
           descending: 'true'
         },
+        clearance: {
+          message: '',
+          state: ''
+        },
+        clearance_states: ['RECOMMEND AGAINST FLIGHT', 'NOTIFICATION RECEIVED', 'CAUTION'],
+        selected: '',
+        presetClearances: [
+        { text: 'Preset Message', value: '' },
+
+        { text: 'CLEAR FLIGHT', 
+          value: this.user_info.user.first_name + ", \nYou're all set! The Georgia Tech Police Department Watch " +
+          "Commanders and Dispatchers have been notified about your intended flight. " +
+          "\nPlease note, filing a flight plan with the Georgia Tech Police Department " +
+          "does not alleviate you of the responsibility of adhering to all FAA regulations " + 
+          "and safety recommendations.As always, if you experience any problems during " +
+          "your flight, please immediately call the GTPD at 404-894-2500. \nFly safe!" },
+
+        { text: 'ANOTHER FLIGHT', 
+          value: this.user_info.user.first_name + ", \nPlease exercise additional caution during your flight, as " +
+          "another UAS pilot has filed a flight plan with an overlapping time frame " +
+          "in the same location. \nPlease note, filing a flight plan with the Georgia " +
+          "Tech Police Department does not alleviate you of the responsibility of adhering " +
+          "to all FAA regulations and safety recommendations. In the unlikely event that " +
+          "you experience any problems during your flight, please immediately call the " +
+          "GTPD at 404-894-2500. \nFly safe!" },
+
+        { text: 'CIVIC TWILIGHT WARNING', 
+          value: this.user_info.user.first_name + ", \nPlease exercise additional caution during your " +
+          "flight. You may not fly a small unmanned aircraft system before sunrise civil twilight, " +
+          "nor after sunset civil twilight time. Civil twilight is defined as 30 minutes before " +
+          "sunrise and 30 minutes after sunset. \nPlease note, filing a flight plan with the Georgia " +
+          "Tech Police Department does not alleviate you of the responsibility of adhering " +
+          "to all FAA regulations and safety recommendations. In the unlikely event " +
+          "that you experience any problems during your flight, please immediately " +
+          "call the GTPD at 404-894-2500. \nFly safe!" },
+
+        { text: 'NIGHT FLYING', 
+          value: this.user_info.user.first_name + ", \nIt is NOT advised to fly at the current time, " +
+          "as the proposed time of your flight at night. The FAA prohibits the operation of " +
+          "small unmanned aircraft systems at night without either a Certificate of " +
+          "Authorization or Waiver. Filing a flight plan with the Georgia Tech Police " +
+          "Department does not alleviate you of the responsibility of adhering to all FAA " +
+          "regulations and safety recommendations.  Please reschedule your flight to comply " +
+          "with FAA regulations." }
+        ],
       }
     },
     methods: {
@@ -287,6 +368,9 @@
 				return clearance["message"]
       },
       async update_clearance(item) {
+        if(this.selected) {
+          item.clearance.message = this.selected;
+        }
         item.clearance.state = this.currState;
         this.message = item.clearance.message;
 				const response = await this.edit_clearance(
