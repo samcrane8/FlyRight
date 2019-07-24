@@ -307,7 +307,7 @@
         { text: 'Preset Message', value: '' },
 
         { text: 'CLEAR FLIGHT', 
-          value: this.user_info.user.first_name + ", \nYou're all set! The Georgia Tech Police Department Watch " +
+          value: "You're all set! The Georgia Tech Police Department Watch " +
           "Commanders and Dispatchers have been notified about your intended flight. " +
           "\nPlease note, filing a flight plan with the Georgia Tech Police Department " +
           "does not alleviate you of the responsibility of adhering to all FAA regulations " + 
@@ -315,7 +315,7 @@
           "your flight, please immediately call the GTPD at 404-894-2500. \nFly safe!" },
 
         { text: 'ANOTHER FLIGHT', 
-          value: this.user_info.user.first_name + ", \nPlease exercise additional caution during your flight, as " +
+          value: "Please exercise additional caution during your flight, as " +
           "another UAS pilot has filed a flight plan with an overlapping time frame " +
           "in the same location. \nPlease note, filing a flight plan with the Georgia " +
           "Tech Police Department does not alleviate you of the responsibility of adhering " +
@@ -324,7 +324,7 @@
           "GTPD at 404-894-2500. \nFly safe!" },
 
         { text: 'CIVIC TWILIGHT WARNING', 
-          value: this.user_info.user.first_name + ", \nPlease exercise additional caution during your " +
+          value: "Please exercise additional caution during your " +
           "flight. You may not fly a small unmanned aircraft system before sunrise civil twilight, " +
           "nor after sunset civil twilight time. Civil twilight is defined as 30 minutes before " +
           "sunrise and 30 minutes after sunset. \nPlease note, filing a flight plan with the Georgia " +
@@ -334,7 +334,7 @@
           "call the GTPD at 404-894-2500. \nFly safe!" },
 
         { text: 'NIGHT FLYING', 
-          value: this.user_info.user.first_name + ", \nIt is NOT advised to fly at the current time, " +
+          value: "It is NOT advised to fly at the current time, " +
           "as the proposed time of your flight at night. The FAA prohibits the operation of " +
           "small unmanned aircraft systems at night without either a Certificate of " +
           "Authorization or Waiver. Filing a flight plan with the Georgia Tech Police " +
