@@ -135,7 +135,6 @@
 			async '$route' (to, from) {
 				// react to route changes...
 				await this.load_data()
-				console.log(department_name);
 			}
 		},
 		filters: {

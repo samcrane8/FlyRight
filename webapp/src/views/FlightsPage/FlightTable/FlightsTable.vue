@@ -272,7 +272,7 @@
 
   export default {
     mixins: [API],
-    props: ['missions','user_info','is_gov_official'],
+    props: ['missions','user_info','is_gov_official', 'department_name'],
     components: {
       'commander-info': CommanderInfo,
       'map-thumbnail': MapThumbnail,
@@ -304,43 +304,7 @@
         clearance_states: ['RECOMMEND AGAINST FLIGHT', 'NOTIFICATION RECEIVED', 'CAUTION'],
         selected: '',
         presetClearances: [
-        { text: 'Preset Message', value: '' },
-
-        { text: 'CLEAR FLIGHT', 
-          value: "You're all set! The Georgia Tech Police Department Watch " +
-          "Commanders and Dispatchers have been notified about your intended flight. " +
-          "\nPlease note, filing a flight plan with the Georgia Tech Police Department " +
-          "does not alleviate you of the responsibility of adhering to all FAA regulations " + 
-          "and safety recommendations.As always, if you experience any problems during " +
-          "your flight, please immediately call the GTPD at 404-894-2500. \nFly safe!" },
-
-        { text: 'ANOTHER FLIGHT', 
-          value: "Please exercise additional caution during your flight, as " +
-          "another UAS pilot has filed a flight plan with an overlapping time frame " +
-          "in the same location. \nPlease note, filing a flight plan with the Georgia " +
-          "Tech Police Department does not alleviate you of the responsibility of adhering " +
-          "to all FAA regulations and safety recommendations. In the unlikely event that " +
-          "you experience any problems during your flight, please immediately call the " +
-          "GTPD at 404-894-2500. \nFly safe!" },
-
-        { text: 'CIVIC TWILIGHT WARNING', 
-          value: "Please exercise additional caution during your " +
-          "flight. You may not fly a small unmanned aircraft system before sunrise civil twilight, " +
-          "nor after sunset civil twilight time. Civil twilight is defined as 30 minutes before " +
-          "sunrise and 30 minutes after sunset. \nPlease note, filing a flight plan with the Georgia " +
-          "Tech Police Department does not alleviate you of the responsibility of adhering " +
-          "to all FAA regulations and safety recommendations. In the unlikely event " +
-          "that you experience any problems during your flight, please immediately " +
-          "call the GTPD at 404-894-2500. \nFly safe!" },
-
-        { text: 'NIGHT FLYING', 
-          value: "It is NOT advised to fly at the current time, " +
-          "as the proposed time of your flight at night. The FAA prohibits the operation of " +
-          "small unmanned aircraft systems at night without either a Certificate of " +
-          "Authorization or Waiver. Filing a flight plan with the Georgia Tech Police " +
-          "Department does not alleviate you of the responsibility of adhering to all FAA " +
-          "regulations and safety recommendations.  Please reschedule your flight to comply " +
-          "with FAA regulations." }
+          { text: 'Preset Message', value: '' },
         ],
       }
     },
@@ -379,7 +343,7 @@
 				);
 				if (response.status == 200) {
 					this.$emit('snackbar', 6000, 'Clearance updated.')
-				}
+        }
 			},
       can_delete(id){
 				return this.user_info.user.id == id
@@ -402,6 +366,57 @@
 			datetime_filter: function (date) {
     		return moment(date).format('MMMM Do YYYY, h:mm a');
 			}
-		}
+    },
+    watch: {
+      department_name(val) {
+        //true clause
+        if (this.presetClearances != null) {
+
+          this.presetClearances = [
+            { text: 'Preset Message', value: '' },
+
+            { text: 'CLEAR FLIGHT', 
+              value: "You're all set! The " + this.department_name +
+              " Commanders and Dispatchers have been notified about your intended flight. " +
+              "\nPlease note, filing a flight plan with the " + this.department_name + 
+              " does not alleviate you of the responsibility of adhering to all FAA regulations " + 
+              "and safety recommendations. As always, if you experience any problems during " +
+              "your flight, please immediately call the " + this.department_name + " at " + 
+              this.user_info.pilot.mobile_phone_number + ". \nFly safe!" },
+
+            { text: 'ANOTHER FLIGHT', 
+              value: "Please exercise additional caution during your flight, as " +
+              "another UAS pilot has filed a flight plan with an overlapping time frame " +
+              "in the same location. \nPlease note, filing a flight plan with the " + this.department_name + 
+              " does not alleviate you of the responsibility of adhering " +
+              "to all FAA regulations and safety recommendations. In the unlikely event that " +
+              "you experience any problems during your flight, please immediately call the " +
+              this.department_name + " at " + this.user_info.pilot.mobile_phone_number + 
+              ". \nFly safe!" },
+
+            { text: 'CIVIC TWILIGHT WARNING', 
+              value: "Please exercise additional caution during your " +
+              "flight. You may not fly a small unmanned aircraft system before sunrise civil twilight, " +
+              "nor after sunset civil twilight time. Civil twilight is defined as 30 minutes before " +
+              "sunrise and 30 minutes after sunset. \nPlease note, filing a flight plan with the " +
+              this.department_name + " does not alleviate you of the responsibility of adhering " +
+              "to all FAA regulations and safety recommendations. In the unlikely event " +
+              "that you experience any problems during your flight, please immediately " +
+              "call the " + this.department_name + " at " + this.user_info.pilot.mobile_phone_number + 
+              ". \nFly safe!" },
+
+            { text: 'NIGHT FLYING', 
+              value: "It is NOT advised to fly at the current time, " +
+              "as the proposed time of your flight at night. The FAA prohibits the operation of " +
+              "small unmanned aircraft systems at night without either a Certificate of " +
+              "Authorization or Waiver. Filing a flight plan with the " + this.department_name +
+              " does not alleviate you of the responsibility of adhering to all FAA " +
+              "regulations and safety recommendations.  Please reschedule your flight to comply " +
+              "with FAA regulations." }
+              ]
+
+          }
+        }
+    }
   }
 </script>
