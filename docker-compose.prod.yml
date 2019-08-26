@@ -12,10 +12,10 @@ services:
   business-logic:
     build:
       context: business-logic-server
-      dockerfile: Dockerfile
-    command: python3.7 manage.py runserver 0.0.0.0:8000
+      dockerfile: prod.Dockerfile
+    command: gunicorn --bind 0.0.0.0:8000 icarus_backend.wsgi:application
     environment:
-      - DJANGO_DEBUG=enabled
+      - DJANGO_DEBUG=disabled
       - SQL_DATABASE=gis
       - FLYRIGHT_BUILD=DEV
       - SQL_HOST=db
@@ -29,7 +29,7 @@ services:
       - SUPERUSER_USERNAME=admin
       - SUPERUSER_PASSWORD=password
       - SUPERUSER_EMAIL=admin@password.com
-      - SLACKBOT_ENABLED=disabled
+      - SLACKBOT_ENABLED=enabled
     env_file: business-logic.env
     volumes:
       - .:/usr/src/app
@@ -58,21 +58,29 @@ services:
       - 8080
   nginx:
     build: ./nginx
+    environment:
+      - WEBAPP_DOMAIN=flyright.police.gatech.edu
+      - API_DOMAIN=flyright-api.police.gatech.edu
     ports:
-      - 80:80
+      - 443:443
     depends_on:
       - web
+      - business-logic
   redis:
     image: redis
     ports:
       - 6379:6379
-    expose:
-      - 6379
   celery-worker:
     build:
       context: business-logic-server
-      dockerfile: Dockerfile
-    command: python3.7 manage.py runserver 0.0.0.0:8000
+      dockerfile: prod.Dockerfile
+    command: celery worker -A icarus_backend --loglevel=debug --concurrency=1
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - redis
+    links:
+      - redis
 
 volumes:
   postgres_data:

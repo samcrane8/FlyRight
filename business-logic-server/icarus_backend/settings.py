@@ -38,7 +38,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zcr39#y7%e9a$r+n=72uw6@2k_o*fw-)so&fl&@_+1v0v+@in@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', 'enabled') == 'enabled'
+DEBUG = os.environ.get('DJANGO_DEBUG', 'disabled') == 'enabled'
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
@@ -175,7 +175,7 @@ AUTHENTICATION_BACKENDS = (
 AUTH_USER_MODEL = 'users.IcarusUser'
 
 # REDIS related settings
-REDIS_HOST = 'localhost'
+REDIS_HOST = 'redis'
 REDIS_PORT = '6379'
 BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
