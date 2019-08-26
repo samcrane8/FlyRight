@@ -3,3 +3,4 @@ push_all.sh
 *.env
 .idea/
 env/
+.vscode/

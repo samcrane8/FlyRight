@@ -64,9 +64,15 @@ services:
       - web
   redis:
     image: redis
-    container_name: cache
+    ports:
+      - 6379:6379
     expose:
       - 6379
+  celery-worker:
+    build:
+      context: business-logic-server
+      dockerfile: Dockerfile
+    command: python3.7 manage.py runserver 0.0.0.0:8000
 
 volumes:
   postgres_data:
