@@ -3,3 +3,6 @@ push_all.sh
 *.env
 .idea/
 env/
+.vscode/
+*.crt
+*.key
