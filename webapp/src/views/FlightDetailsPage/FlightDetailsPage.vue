@@ -25,6 +25,8 @@
             xs4
             v-if="flight"
             :flight="flight"
+            :department_name="department_name"
+            :department_info="department_info"
             v-on:update_clearance="update_clearance"
             :is_gov_official="is_gov_official"
             :user_info="user_info"/>
@@ -69,6 +71,8 @@
         drones: null,
         user_info: null,
         is_gov_official: false,
+        department_info: null,
+        department_name: ""
       }
     },
     methods: {
@@ -106,6 +110,12 @@
         }
         await this.get_user();
         await this.fetch_mission_info();
+        var response = await this.get_user_departments(this.$store.state.access_token);
+        if (response.status == 200){
+          this.department_info = response.data
+          this.department_name = this.department_info[0].name;
+          this.department_info = this.department_info[0]
+        }
       },
       async update_clearance(clearance) {
         const response = await this.edit_clearance(

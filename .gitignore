@@ -2,3 +2,4 @@ push_backend.sh
 push_all.sh
 *.env
 .idea/
+env/

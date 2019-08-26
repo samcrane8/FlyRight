@@ -154,23 +154,58 @@
                 <v-card-text>
                   <v-layout column>
                     <v-layout row v-if="props.item.can_edit_clearance" >
-                      <v-flex style="margin-top:5px;">
+                      <!-- <v-flex style="margin-top:5px;">
                         <v-text-field 
                           label="Write a short message to the commander to explain how you're setting the status."
                           multi-line
                           rows="3"
-                          :placeholder="props.item.clearance.message"
-                          v-model="message"
+                          v-model="props.item.clearance.message"
                         >
                         </v-text-field>
                       </v-flex>
-                      <v-select
-                        :items="clearance_states"
-                        v-model="currState"
-                        label="Set Clearance"
-                        single-line
-                        bottom
-                      ></v-select>
+                       -->
+                      
+                      <v-flex style="margin-top:5px;">
+                        <v-text-field 
+                          v-if="selected" 
+                          label="Write a short message to the commander to explain how you're setting the status."
+                          multi-line
+                          rows="3"
+                          v-model="selected"
+                        >
+                        </v-text-field>  
+                        <v-text-field 
+                          v-else 
+                          label="Write a short message to the commander to explain how you're setting the status."
+                          multi-line
+                          rows="3"
+                          v-model="props.item.clearance.message"
+                        >
+                        </v-text-field>
+                      </v-flex>
+                      <v-layout column>
+                        <select 
+                          v-model="selected"
+                          style="border:1px solid gray;
+                          border-radius:2px;"
+                          >
+                          <option 
+                            v-for="presetClearance in presetClearances" 
+                            :value="presetClearance.value"
+                            :key="presetClearance.text">
+                              {{ presetClearance.text }}
+                          </option>
+                        </select>
+                        <v-select
+                          :items="clearance_states"
+                          v-model="currState"
+                          label="Set Clearance"
+                          single-line
+                          bottom
+                        ></v-select>
+
+                      </v-layout>
+
                     </v-layout>
                     <v-layout row v-if="!props.item.can_edit_clearance" >
                       <v-flex style="margin-top:5px;">
@@ -237,7 +272,7 @@
 
   export default {
     mixins: [API],
-    props: ['missions','user_info','is_gov_official'],
+    props: ['missions','user_info','is_gov_official', 'department_name'],
     components: {
       'commander-info': CommanderInfo,
       'map-thumbnail': MapThumbnail,
@@ -262,6 +297,15 @@
           sortBy: 'created_at',
           descending: 'true'
         },
+        clearance: {
+          message: '',
+          state: ''
+        },
+        clearance_states: ['RECOMMEND AGAINST FLIGHT', 'NOTIFICATION RECEIVED', 'CAUTION'],
+        selected: '',
+        presetClearances: [
+          { text: 'Preset Message', value: '' },
+        ],
       }
     },
     methods: {
@@ -288,14 +332,18 @@
 				return clearance["message"]
       },
       async update_clearance(item) {
-				item.clearance.state = this.currState;
+        if(this.selected) {
+          item.clearance.message = this.selected;
+        }
+        item.clearance.state = this.currState;
+        this.message = item.clearance.message;
 				const response = await this.edit_clearance(
 					item.id, item.clearance.state, this.message,
 					this.$store.state.access_token
 				);
 				if (response.status == 200) {
 					this.$emit('snackbar', 6000, 'Clearance updated.')
-				}
+        }
 			},
       can_delete(id){
 				return this.user_info.user.id == id
@@ -318,6 +366,57 @@
 			datetime_filter: function (date) {
     		return moment(date).format('MMMM Do YYYY, h:mm a');
 			}
-		}
+    },
+    watch: {
+      department_name(val) {
+        //true clause
+        if (this.presetClearances != null) {
+
+          this.presetClearances = [
+            { text: 'Preset Message', value: '' },
+
+            { text: 'CLEAR FLIGHT', 
+              value: "You're all set! The " + this.department_name +
+              " Commanders and Dispatchers have been notified about your intended flight. " +
+              "\nPlease note, filing a flight plan with the " + this.department_name + 
+              " does not alleviate you of the responsibility of adhering to all FAA regulations " + 
+              "and safety recommendations. As always, if you experience any problems during " +
+              "your flight, please immediately call the " + this.department_name + " at " + 
+              this.user_info.pilot.mobile_phone_number + ". \nFly safe!" },
+
+            { text: 'ANOTHER FLIGHT', 
+              value: "Please exercise additional caution during your flight, as " +
+              "another UAS pilot has filed a flight plan with an overlapping time frame " +
+              "in the same location. \nPlease note, filing a flight plan with the " + this.department_name + 
+              " does not alleviate you of the responsibility of adhering " +
+              "to all FAA regulations and safety recommendations. In the unlikely event that " +
+              "you experience any problems during your flight, please immediately call the " +
+              this.department_name + " at " + this.user_info.pilot.mobile_phone_number + 
+              ". \nFly safe!" },
+
+            { text: 'CIVIC TWILIGHT WARNING', 
+              value: "Please exercise additional caution during your " +
+              "flight. You may not fly a small unmanned aircraft system before sunrise civil twilight, " +
+              "nor after sunset civil twilight time. Civil twilight is defined as 30 minutes before " +
+              "sunrise and 30 minutes after sunset. \nPlease note, filing a flight plan with the " +
+              this.department_name + " does not alleviate you of the responsibility of adhering " +
+              "to all FAA regulations and safety recommendations. In the unlikely event " +
+              "that you experience any problems during your flight, please immediately " +
+              "call the " + this.department_name + " at " + this.user_info.pilot.mobile_phone_number + 
+              ". \nFly safe!" },
+
+            { text: 'NIGHT FLYING', 
+              value: "It is NOT advised to fly at the current time, " +
+              "as the proposed time of your flight at night. The FAA prohibits the operation of " +
+              "small unmanned aircraft systems at night without either a Certificate of " +
+              "Authorization or Waiver. Filing a flight plan with the " + this.department_name +
+              " does not alleviate you of the responsibility of adhering to all FAA " +
+              "regulations and safety recommendations.  Please reschedule your flight to comply " +
+              "with FAA regulations." }
+              ]
+
+          }
+        }
+    }
   }
 </script>

@@ -98,14 +98,35 @@
                 <v-layout row v-if="flight.can_edit_clearance" >
                   <v-flex style="margin-top:5px;">
                     <v-text-field 
+                      v-if="selected" 
                       label="Write a short message to the commander to explain how you're setting the status."
                       multi-line
                       rows="3"
-                      :value="flight.clearance.message"
-                      v-model="clearance.message"
+                      v-model="selected"
+                    >
+                    </v-text-field>  
+                    <v-text-field 
+                      v-else 
+                      label="Write a short message to the commander to explain how you're setting the status."
+                      multi-line
+                      rows="3"
+                      v-model="flight.clearance.message"
                     >
                     </v-text-field>
                   </v-flex>
+                  <v-layout column>
+                    <select 
+                      v-model="selected"
+                      style="border:1px solid gray;
+                      border-radius:2px;"
+                      >
+                    <option 
+                      v-for="presetClearance in presetClearances" 
+                      :value="presetClearance.value"
+                      :key="presetClearance.text">
+                        {{ presetClearance.text }}
+                    </option>
+                  </select>
                   <v-select
                     :items="clearance_states"
                     v-model="clearance.state"
@@ -113,6 +134,8 @@
                     single-line
                     bottom
                   ></v-select>
+                  </v-layout>
+                  
                 </v-layout>
                 <v-layout row v-if="!flight.can_edit_clearance" >
                   <v-flex style="margin-top:5px;">
@@ -224,6 +247,10 @@
           state: ''
         },
         clearance_states: ['RECOMMEND AGAINST FLIGHT', 'NOTIFICATION RECEIVED', 'CAUTION'],
+        selected: '',
+        presetClearances: [
+        { text: 'Preset Message', value: '' }
+        ]
       }
     },
     props: {
@@ -244,9 +271,17 @@
         default() {
           return false;
         }
-      }
+      },
+      department_info: {
+        type: Object,
+        default() {
+          return { message: 'hello' }
+        }
+      },
+      department_name: String
     },
     methods: {
+
       _state(clearance) {
 				if (clearance == null){
 					return false
@@ -264,7 +299,13 @@
         this.delete_dialog=false
       },
       update_clearance() {
-        this.$emit('update_clearance', this.clearance)
+        if(this.selected) {
+          //if there's a preset message selected
+          this.clearance.message = this.selected;
+        } else {
+          this.clearance.message = this.flight.clearance.message;
+        }
+        this.$emit('update_clearance', this.clearance);
       }
     },
     filters: {
@@ -274,7 +315,58 @@
 			datetime_filter: function (date) {
     		return moment(date).format('MMMM Do YYYY, h:mm a');
 			}
-		}
+    },
+    watch: {
+      department_name(val) {
+        //true clause
+        if (this.presetClearances != null) {
+
+          this.presetClearances = [
+            { text: 'Preset Message', value: '' },
+
+            { text: 'CLEAR FLIGHT', 
+              value: "You're all set! The " + this.department_name +
+              " Commanders and Dispatchers have been notified about your intended flight. " +
+              "\nPlease note, filing a flight plan with the " + this.department_name + 
+              " does not alleviate you of the responsibility of adhering to all FAA regulations " + 
+              "and safety recommendations. As always, if you experience any problems during " +
+              "your flight, please immediately call the " + this.department_name + " at " + 
+              this.user_info.pilot.mobile_phone_number + ". \nFly safe!" },
+
+            { text: 'ANOTHER FLIGHT', 
+              value: "Please exercise additional caution during your flight, as " +
+              "another UAS pilot has filed a flight plan with an overlapping time frame " +
+              "in the same location. \nPlease note, filing a flight plan with the " + this.department_name + 
+              " does not alleviate you of the responsibility of adhering " +
+              "to all FAA regulations and safety recommendations. In the unlikely event that " +
+              "you experience any problems during your flight, please immediately call the " +
+              this.department_name + " at " + this.user_info.pilot.mobile_phone_number + 
+              ". \nFly safe!" },
+
+            { text: 'CIVIC TWILIGHT WARNING', 
+              value: "Please exercise additional caution during your " +
+              "flight. You may not fly a small unmanned aircraft system before sunrise civil twilight, " +
+              "nor after sunset civil twilight time. Civil twilight is defined as 30 minutes before " +
+              "sunrise and 30 minutes after sunset. \nPlease note, filing a flight plan with the " +
+              this.department_name + " does not alleviate you of the responsibility of adhering " +
+              "to all FAA regulations and safety recommendations. In the unlikely event " +
+              "that you experience any problems during your flight, please immediately " +
+              "call the " + this.department_name + " at " + this.user_info.pilot.mobile_phone_number + 
+              ". \nFly safe!" },
+
+            { text: 'NIGHT FLYING', 
+              value: "It is NOT advised to fly at the current time, " +
+              "as the proposed time of your flight at night. The FAA prohibits the operation of " +
+              "small unmanned aircraft systems at night without either a Certificate of " +
+              "Authorization or Waiver. Filing a flight plan with the " + this.department_name +
+              " does not alleviate you of the responsibility of adhering to all FAA " +
+              "regulations and safety recommendations.  Please reschedule your flight to comply " +
+              "with FAA regulations." }
+              ]
+
+        }
+      }
+    },
   }
 </script>
 
