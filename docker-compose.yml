@@ -58,6 +58,8 @@ services:
       - 8080
   redis:
     image: redis
+    ports:
+      - 6379:6379
     expose:
       - 6379
 
