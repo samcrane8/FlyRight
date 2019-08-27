@@ -13,6 +13,6 @@ fi
 cd business-logic-server && python3.7 manage.py makemigrations icarus_backend
 python3.7 manage.py migrate
 echo "MIGRATED"
-python3.7 setup_user_and_department.py
+python3.7 prepopulate_database.py
 
 exec "$@"
