@@ -11,4 +11,6 @@ then
     echo "PostgreSQL started"
 fi
 
+cd business-logic-server
+
 exec "$@"
