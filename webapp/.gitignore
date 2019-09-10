@@ -18,3 +18,4 @@ demo-drone-app/dist/**
 *.sln
 *.swp
 config.js
+dist/
