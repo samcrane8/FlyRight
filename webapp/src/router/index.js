@@ -27,7 +27,9 @@ const routerOptions = [
     meta: { mustBeLoggedIn: true} },
   { path: '/editflight', view: 'EditFlightPage',
     meta: { mustBeLoggedIn: true} },
-  { path: '/privacy', view: 'PrivacyPage'}
+  { path: '/privacy', view: 'PrivacyPage'},
+  { path: '/calendar', view: 'CalendarPage',
+    meta: { mustBeLoggedIn: true } }
 ]
 
 const routes = routerOptions.map(route => {
