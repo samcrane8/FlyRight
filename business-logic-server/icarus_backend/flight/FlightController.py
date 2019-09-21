@@ -119,12 +119,11 @@ class FlightController:
         departments = Department.objects.filter(area__intersects=flight.area).all()
         for department in departments:
             for airboss in department.airbosses.all():
-                print(airboss.email)
-                notify.send(user, recipient=airboss, verb='registered a flight', action_object=flight)
+                notify.send(user, recipient=airboss, verb='edited a flight', action_object=flight)
                 if not DEBUG:
                     new_flight_registered_email.delay(airboss.username, airboss.email, airboss.id, domain)
             for watch_commanders in department.watchCommanders.all():
-                notify.send(user, recipient=watch_commanders, verb='registered a flight', action_object=flight)
+                notify.send(user, recipient=watch_commanders, verb='edited a flight', action_object=flight)
                 if not DEBUG:
                     new_flight_registered_email.delay(watch_commanders.username, watch_commanders.email, watch_commanders.id, domain)
         return 200, {'message': flight.id}
