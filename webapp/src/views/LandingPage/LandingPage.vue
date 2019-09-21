@@ -15,7 +15,7 @@
           </v-flex>
         </v-layout>
         <v-spacer/>
-        <v-flex class="hidden-xs-only">
+        <v-flex>
           <reg-step
           v-on:snackbar="_snackbar"
           />
