@@ -16,6 +16,16 @@
 							</v-btn>
 						</v-flex>
 					</v-card>
+					<v-card style="margin-left:20px;margin-right:20px;">
+						<v-flex class="text-xs-center">
+							<v-btn flat outline style="margin:10px;" @click="viewCalendar()">
+								<v-icon>
+									event
+								</v-icon>
+								View Calendar
+							</v-btn>
+						</v-flex>
+					</v-card>
 				</v-layout>
 			</v-flex>
 			<flights-table
@@ -100,6 +110,9 @@
 			newMission(){
 			  router.push('/newflight')
       },
+	  viewCalendar() {
+			router.push('./calendar')
+		},
       afterFilterHandler(value) {
         this.afterFilter = value
       },
