@@ -46,7 +46,8 @@ CORS_ORIGIN_WHITELIST = (
     'dev.icarusmap.com',
     'icarusmap.com',
     'www.icarusmap.com',
-    'api.icarusmap.com'
+    'api.icarusmap.com',
+    'flyright-api.police.gatech.edu',
 )
 
 EMAIL_USE_SSL = False
@@ -165,6 +166,7 @@ ALLOWED_HOSTS = [
     'ec2-54-210-169-20.compute-1.amazonaws.com',
     '34.238.115.176',
     'ec2-34-238-115-176.compute-1.amazonaws.com',
+    'flyright-api.police.gatech.edu'
 ]
 
 AUTHENTICATION_BACKENDS = (

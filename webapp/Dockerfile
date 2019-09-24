@@ -1,5 +1,7 @@
 FROM node:lts-alpine
 
+RUN npm config set unsafe-perm true
+
 # install simple http server for serving static content
 RUN npm install -g yarn http-server
 
@@ -14,5 +16,9 @@ RUN yarn install
 
 # copy project files and folders to the current working directory (i.e. 'app' folder)
 COPY . .
+
+ARG OLD_STRING=http://127.0.0.1:800
+RUN sed -i 's~$OLD_STRING~$VUE_APP_BUSINESS_LOGIC_HOST~' config/dev.env.js
+RUN cat config/dev.env.js
 
 ENTRYPOINT ["/app/webapp/entrypoint.sh"]

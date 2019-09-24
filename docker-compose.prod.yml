@@ -12,7 +12,7 @@ services:
   business-logic:
     build:
       context: business-logic-server
-      dockerfile: prod.Dockerfile
+      dockerfile: Dockerfile
     command: gunicorn --bind 0.0.0.0:8000 icarus_backend.wsgi:application
     environment:
       - DJANGO_DEBUG=disabled
