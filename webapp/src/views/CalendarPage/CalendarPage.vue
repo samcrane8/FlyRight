@@ -1,6 +1,14 @@
 <template>
     <v-content class="mission_body">
-        <v-layout row style="margin-top:70px;">
+        <v-layout row style="margin:50px; margin-top:70px; margin-bottom:10px;">
+            <v-btn @click="viewFlights()">
+                <v-icon>
+                    navigate_before
+                </v-icon>
+                Go Back
+            </v-btn>
+        </v-layout>
+        <v-layout>
             <calendar
                 :missions="missions"
                 :user_info="user_info"
@@ -72,6 +80,9 @@
                     this.department_name = this.department_info[0].name;
                     this.department_info = this.department_info[0]
                 }
+            },
+            viewFlights() {
+                router.push('./flights')
             },
         },
         async mounted () {
