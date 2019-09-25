@@ -6,7 +6,6 @@ services:
     environment:
       - POSTGRES_PASS=postgres
       - POSTGRES_USER=postgres
-    env_file: db.env
     volumes:
       - postgres_data:/var/lib/postgresql/data/
   business-logic:
@@ -30,7 +29,6 @@ services:
       - SUPERUSER_PASSWORD=password
       - SUPERUSER_EMAIL=admin@password.com
       - SLACKBOT_ENABLED=disabled
-    env_file: business-logic.env
     volumes:
       - .:/usr/src/app
     ports:
@@ -49,7 +47,6 @@ services:
       - CHOKIDAR_USEPOLLING=true
       - CLIENT_ID=1
       - CLIENT_SECRET=2
-    env_file: webapp.env
     volumes:
       - .:/app
     ports:
