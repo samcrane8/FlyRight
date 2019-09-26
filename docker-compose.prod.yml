@@ -10,8 +10,9 @@ services:
       - 5432:5432
     expose:
       - 5432
+    restart: always
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+      - $HOME/postgres_data:/var/lib/postgresql
   business-logic:
     build:
       context: business-logic-server
@@ -85,6 +86,3 @@ services:
     links:
       - redis
 
-volumes:
-  postgres_data:
-    external: true

@@ -6,3 +6,4 @@ env/
 .vscode/
 *.crt
 *.key
+postgres_data/
