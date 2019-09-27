@@ -48,7 +48,7 @@ services:
       - CLIENT_ID=1
       - CLIENT_SECRET=2
     volumes:
-      - .:/app
+      - .:/usr/src/app
     ports:
       - 8080:8080
     expose:
