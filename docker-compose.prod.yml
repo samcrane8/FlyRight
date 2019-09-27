@@ -2,13 +2,17 @@ version: '3'
 
 services:
   db:
-    image: kartoza/postgis
+    image: kartoza/postgis:10.0-2.4
     environment:
       - POSTGRES_PASS=postgres
       - POSTGRES_USER=postgres
-    env_file: db.env
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    restart: always
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - $HOME/postgres_data:/var/lib/postgresql
   business-logic:
     build:
       context: business-logic-server
@@ -24,13 +28,13 @@ services:
       - SQL_PASSWORD=postgres
       - SQL_ENGINE=django.contrib.gis.db.backends.postgis
       - DATABASE=postgres
-      - EMAIL_ADDRESS=example@place.com
+      - EMAIL_ADDRESS=${EMAIL_ADDRESS}
+      - EMAIL_HOST=${EMAIL_HOST}
       - SLACKBOT_WEBHOOK_URL=http://something.slack.com
       - SUPERUSER_USERNAME=admin
       - SUPERUSER_PASSWORD=password
       - SUPERUSER_EMAIL=admin@password.com
       - SLACKBOT_ENABLED=enabled
-    env_file: business-logic.env
     volumes:
       - .:/usr/src/app
     ports:
@@ -45,13 +49,11 @@ services:
     environment:
       - HOST=0.0.0.0
       - PORT=8080
-      - VUE_APP_BUSINESS_LOGIC_HOST=business-logic:8000
-      - CHOKIDAR_USEPOLLING=true
+      - VUE_APP_BUSINESS_LOGIC_HOST=${VUE_APP_BUSINESS_LOGIC_HOST}
       - CLIENT_ID=1
       - CLIENT_SECRET=2
-    env_file: webapp.env
     volumes:
-      - .:/app
+      - .:/usr/src/app
     ports:
       - 8080:8080
     expose:
@@ -63,6 +65,8 @@ services:
       - API_DOMAIN=flyright-api.police.gatech.edu
     ports:
       - 443:443
+    expose:
+      - 443
     depends_on:
       - web
       - business-logic
@@ -82,5 +86,3 @@ services:
     links:
       - redis
 
-volumes:
-  postgres_data:

@@ -33,6 +33,6 @@ def clearance_update_email(username, email, gov_official_username, flight_title,
         'state': state,
     })
     email = EmailMessage(
-        mail_subject, message, secrets["email"]["from"], to=[email]
+        mail_subject, message, os.environ.get('EMAIL_ADDRESS', 'DEV'), to=[email]
     )
     email.send()
