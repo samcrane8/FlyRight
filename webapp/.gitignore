@@ -19,3 +19,4 @@ demo-drone-app/dist/**
 *.swp
 config.js
 dist/
+.env
