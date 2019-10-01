@@ -206,6 +206,20 @@
           isComplete = false;
           this.alertMissingMessage += 'Set a flight area (click the pen button on the far right to set points on the map),'
         }
+        var startTime = new Date(this.flight.starts_at)
+        var endTime = new Date(this.flight.ends_at)
+        var duration = endTime - startTime
+        startTime = startTime.getHours() + ":" + startTime.getMinutes()
+        endTime = endTime.getHours() + ":" + endTime.getMinutes()
+        if (startTime == endTime) {
+          isComplete = false;
+          this.alertMissingMessage += 'The start time and date time cannot be the same time,'
+        }
+        //if the flight is longer than 12 hours
+        if (duration > (1000*60*60*12)) {
+          isComplete = false;
+          this.alertMissingMessage += 'The flight time is too long. Please check the time again,'
+        }
         if (!isComplete) {
           this.alertMissingMessage = this.alertMissingMessage.slice(0,-1).split(',')
         }
