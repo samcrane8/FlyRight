@@ -16,7 +16,7 @@ I have been working for the past year and a half with the Georgia Tech Police De
 
 ## Setup
 
-(Dev) Setup has become lightning fast with the new docker-compose scripts. We still need to do some work on prod deployments.
+(Dev) Setup has become lightning fast with the new docker-compose scripts. We also have a "prod" deployment script that is used by GTPD and can be the inspiration for other deployments.
 
 ### Docker and Docker-Compose
 
@@ -46,8 +46,7 @@ Now, if you want to take it down, type this command: `docker-compose down`
 
 And if you want to delete the volumes created with it, run it with this flag: `docker-compose down -v`
 
-And that is it! Hot reloading works with these containers, so as you change code in your IDE, the containers will update (the caveat
-being some changes will require you to restart the server, like changes to the process.env values in the webapp server, but 99% of them can use hot reloading)
+And that is it! Hot reloading works with these containers, so as you change code in your IDE, the containers will update (the caveat being some changes will require you to restart the server, like changes to the process.env values in the webapp server, but 99% of them can use hot reloading)
 
 ## API
 
@@ -97,4 +96,4 @@ Though this project has jumped different repositories and it does not show in th
 
 ### Pelori
 
-Sam Crane subsequently founded [Pelori](http://www.pelori.io) as a robotic solutions provider. Pelori provides deployment and server maintenance solutions, and is a major contributor to the FlyRight source code.
+Sam Crane and Kaan Göksal subsequently founded [Pelori](http://www.pelori.io) as a computer vision provider for public safety. Pelori provides deployment and server maintenance solutions, and is a major contributor to the FlyRight source code.
