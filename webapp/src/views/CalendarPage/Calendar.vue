@@ -1,12 +1,17 @@
 <template>
-  <v-card :elevation="5" style="margin:50px;">
+  <v-card :elevation="5" style="margin:50px; margin-top:15px;">
+    <v-content style="margin:15px;">
       <FullCalendar 
         @eventClick="handleEventClick"
         :margin="3" 
         defaultView="timeGridWeek" 
         :plugins= "calendarPlugins" 
         :events="events"
+        :contentHeight="550"
+        :nowIndicator="true"
+        :scrollTime="scrollTime"
       />
+    </v-content>
   </v-card>
 </template>
 
@@ -36,6 +41,7 @@
         calendarPlugins: [timeGridPlugin],
           flights:[],
           events:[],
+          scrollTime: '09:00'
       }
     },
     methods: {
