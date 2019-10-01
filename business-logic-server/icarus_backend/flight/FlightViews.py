@@ -105,7 +105,8 @@ def edit_flight(request):
     mission_type = body['type'] if 'type' in body.keys() else None
     mission_data = FlightData(mission_id, title, mission_type, description,
                               starts_at, ends_at, area)
-    status, response_data = FlightController.edit(mission_data)
+    domain = get_current_site(request).domain
+    status, response_data = FlightController.edit(mission_data, request.user, domain)
     response_json = json.dumps(response_data)
     return HttpResponse(response_json, content_type="application/json", status=status)
 
