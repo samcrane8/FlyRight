@@ -14,5 +14,6 @@ urlpatterns = [
     path('add_watch_commander/', DepartmentViews.add_watch_commander, name='add watch commander'),
     path('remove_watch_commander/', DepartmentViews.remove_watch_commander, name='remove watch commander'),
     path('info/', DepartmentViews.info, name='department info'),
-    path('delete/', DepartmentViews.delete, name='department delete')
+    path('delete/', DepartmentViews.delete, name='department delete'),
+    path('edit/', DepartmentViews.edit, name='department edit')
 ]
