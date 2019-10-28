@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e03320c8-f432-406a-bed1-14a543055a47",
+		"_postman_id": "826ed036-2315-4bb8-a24c-f8e66c864feb",
 		"name": "FlyRight",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -30,7 +30,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"description\" : \"fixed-wing, 4\\\" blades\",\n  \"manufacturer\" : \"DJI\",\n  \"type\": \"quadrotor\",\n  \"color\": \"Green\",\n  \"name\": \"Droney!\"\n}"
+							"raw": "{\n        \"id\": \"c0d59f57-ae0b-47ec-8ec6-a0434468d851\",\n        \"name\": \"Test\",\n        \"owner_id\": 1,\n        \"description\": \"\",\n        \"manufacturer\": \"DJI\",\n        \"type\": \"Rotor\",\n        \"color\": \"White\",\n        \"faa_registration_number\": \"\",\n        \"created_at\": \"2019-07-17T19:24:03.635614+00:00\"\n    }"
 						},
 						"url": {
 							"raw": "{{url}}/drone/register_drone/",
@@ -104,10 +104,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/drone/get_user_drones/",
 							"host": [
@@ -367,10 +363,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/flight/get/",
 							"host": [
@@ -608,10 +600,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/flight/get_past/",
 							"host": [
@@ -646,10 +634,6 @@
 								"value": "application/json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/flight/get_upcoming/",
 							"host": [
@@ -728,7 +712,7 @@
 								},
 								{
 									"key": "password",
-									"value": "lawrence71",
+									"value": "password",
 									"type": "text"
 								}
 							]
@@ -825,7 +809,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"username\": \"samcrane6\",\n\t\"password\": \"lawrence6\",\n\t\"email\": \"samcrane8@gmail.com\",\n\t\"picture_url\": \"guy.jpg\"\n}"
+							"raw": "\t{\n        \"username\": \"admin\",\n        \"email\": \"admin@password.com\",\n        \"first_name\": \"Tony\",\n        \"last_name\": \"Choi\",\n        \"picture_url\": \"na\"\n    }"
 						},
 						"url": {
 							"raw": "{{url}}/user/update/",
@@ -912,10 +896,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/user/get/?id=39",
 							"host": [
@@ -951,10 +931,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/user/get_current/",
 							"host": [
@@ -974,10 +950,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/user/is_logged_in/",
 							"host": [
@@ -997,10 +969,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/user/forgot_password/?email=samcrane8@gmail.com",
 							"host": [
@@ -1108,10 +1076,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/pilot/get/?id=61",
 							"host": [
@@ -1152,10 +1116,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/department/is_government_official/",
 							"host": [
@@ -1185,10 +1145,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/department/get/",
 							"host": [
@@ -1218,10 +1174,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/department/get/?id=",
 							"host": [
@@ -1257,10 +1209,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/department/get/",
 							"host": [
@@ -1290,10 +1238,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/department/info/?id=4",
 							"host": [
@@ -1336,7 +1280,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Georgia Tech Police Department\", \n\t\"airboss_id\": 30\n}"
+							"raw": "{\n\t\"name\": \"Georgia Tech Police Department\", \n\t\"airboss_id\": 1\n}"
 						},
 						"url": {
 							"raw": "{{url}}/department/add_airboss/",
@@ -1492,7 +1436,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Georgia Tech Police Department\",\n\t\"owner_id\": 1,\n\t\"area\": {\n        \"type\": \"FeatureCollection\",\n        \"features\": [\n            {\n            \t\"type\": \"Feature\",\n            \t\"properties\": {},\n                \"geometry\": {\n                    \"coordinates\": [\n                        [\n                            33.78142341076552,\n                            -84.40747627542487\n                        ],\n                        [\n                            33.77814173337791,\n                            -84.40721878335944\n                        ],\n                        [\n                            33.77635816032391,\n                            -84.40575966165534\n                        ],\n                        [\n                            33.77500261996641,\n                            -84.4040430478858\n                        ],\n                        [\n                            33.773504366195404,\n                            -84.40159687326422\n                        ],\n                        [\n                            33.77296926921291,\n                            -84.39945110605231\n                        ],\n                        [\n                            33.77122126244645,\n                            -84.39893612192145\n                        ],\n                        [\n                            33.77129261035952,\n                            -84.3961895398902\n                        ],\n                        [\n                            33.77050778004809,\n                            -84.39593204782477\n                        ],\n                        [\n                            33.76968726794511,\n                            -84.392370074253\n                        ],\n                        [\n                            33.768866747984966,\n                            -84.39194092081061\n                        ],\n                        [\n                            33.76890242292924,\n                            -84.39061054513922\n                        ],\n                        [\n                            33.77122126244645,\n                            -84.39061054513922\n                        ],\n                        [\n                            33.77400378703043,\n                            -84.39052471445075\n                        ],\n                        [\n                            33.77664353450811,\n                            -84.39121135995856\n                        ],\n                        [\n                            33.78028197202204,\n                            -84.39129719064704\n                        ],\n                        [\n                            33.7814947501819,\n                            -84.3915975980567\n                        ],\n                        [\n                            33.78142341076552,\n                            -84.40747627542487\n                        ]\n                    ],\n                    \"type\": \"Polygon\"\n                }\n            }\n        ]\n    }\n}"
+							"raw": "{\n\t\"name\": \"Georgia Tech Police Department\",\n\t\"owner_id\": 1,\n\t\"area\": {\n  \"type\": \"FeatureCollection\",\n  \"features\": [\n    {\n      \"type\": \"Feature\",\n      \"properties\": {},\n      \"geometry\": {\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n          [\n            [\n              -84.40184354782104,\n              33.77397492784121\n            ],\n            [\n              -84.39703702926636,\n              33.77397492784121\n            ],\n            [\n              -84.39703702926636,\n              33.777435121968495\n            ],\n            [\n              -84.40184354782104,\n              33.777435121968495\n            ],\n            [\n              -84.40184354782104,\n              33.77397492784121\n            ]\n          ]\n        ]\n      }\n    }\n  ]\n}\n        \n}"
 						},
 						"url": {
 							"raw": "{{url}}/department/create/",
@@ -1502,6 +1446,45 @@
 							"path": [
 								"department",
 								"create",
+								""
+							]
+						},
+						"description": "Upgrade the given user to a government official. Only to be done by admin users."
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Department",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Georgia Tech Police Department\",\n\t\"new_name\": \"Georgia Tech Police Department\",\n\t\"area\": {\n  \"type\": \"FeatureCollection\",\n  \"features\": [\n    {\n      \"type\": \"Feature\",\n      \"properties\": {},\n      \"geometry\": {\n        \"type\": \"Polygon\",\n        \"coordinates\": [\n            [34.994003757575776, -85.62744140625],\n            [32.69486597787505, -85.14404296875],\n            [32.602361666817515, -85.089111328125],\n            [32.491230287947594, -84.979248046875],\n            [32.36140331527543, -85.01220703125],\n            [32.27784451498272, -84.91333007812499],\n            [32.24068253457369, -84.91333007812499],\n            [32.11980111179328, -85.05615234375],\n            [32.02670629333614, -85.05615234375],\n            [31.85889704445453, -85.15502929687499],\n            [31.606609719226917, -85.078125],\n            [31.23159167205059, -85.1220703125],\n            [30.987027960280326, -85.001220703125],\n            [30.704058230919504, -84.91333007812499],\n            [30.56226095049944, -82.276611328125],\n            [30.44867367928756, -82.19970703125],\n            [30.391830328088137, -82.24365234375],\n            [30.372875188118016, -82.078857421875],\n            [30.543338954230222, -82.001953125],\n            [30.637912028341123, -82.0458984375],\n            [30.751277776257812, -82.0458984375],\n            [30.789036751261136, -81.968994140625],\n            [30.845647420182598, -81.93603515625],\n            [30.779598396611537, -81.88110351562499],\n            [30.732392734006083, -81.73828125],\n            [30.675715404167743, -81.463623046875],\n            [30.968189296794247, -81.38671875],\n            [31.287939892641734, -81.298828125],\n            [31.5504526754715, -81.15600585937499],\n            [31.68143311662596, -81.123046875],\n            [32.01739159980399, -80.826416015625],\n            [32.08722870829662, -81.0955810546875],\n            [32.23603621746476, -81.15600585937499],\n            [32.31499127724556, -81.112060546875],\n            [32.4263401615464, -81.199951171875],\n            [32.46806060917602, -81.19445800781249],\n            [32.56996256044998, -81.2933349609375],\n            [32.62549671451373, -81.4141845703125],\n            [32.82421110161336, -81.43615722656249],\n            [32.95797741405952, -81.5130615234375],\n            [33.01326987686983, -81.5130615234375],\n            [33.10534697199519, -81.6339111328125],\n            [33.169743600216165, -81.7767333984375],\n            [33.4039312002347, -81.93603515625],\n            [33.56428403679499, -82.056884765625],\n            [33.637489243170826, -82.21618652343749],\n            [33.75174787568194, -82.24365234375],\n            [33.96614226559745, -82.5567626953125],\n            [34.17999758688084, -82.7325439453125],\n            [34.28445325435288, -82.75451660156249],\n            [34.37517887533528, -82.8424072265625],\n            [34.488447837809304, -82.8753662109375],\n            [34.48392002731987, -83.0401611328125],\n            [34.610605760914666, -83.177490234375],\n            [34.69646117272349, -83.3477783203125],\n            [34.786739162702524, -83.3258056640625],\n            [35.003003395276714, -83.1060791015625],\n            [34.994003757575776, -85.62744140625]\n        ]\n      }\n    }\n  ]\n}\n        \n}"
+						},
+						"url": {
+							"raw": "{{url}}/department/edit/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"department",
+								"edit",
 								""
 							]
 						},
@@ -1650,10 +1633,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/user/get/?id=39",
 							"host": [
@@ -1689,10 +1668,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/notification/feed/?count=5",
 							"host": [
@@ -1728,10 +1703,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/notification/read/?id=64",
 							"host": [
@@ -1767,10 +1738,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/notification/read_all/",
 							"host": [
@@ -1800,10 +1767,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/inbox/notifications/api/unread_count/",
 							"host": [
@@ -1835,10 +1798,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/inbox/notifications/api/unread_list/",
 							"host": [
