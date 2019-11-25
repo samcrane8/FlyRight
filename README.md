@@ -96,4 +96,4 @@ Though this project has jumped different repositories and it does not show in th
 
 ### Pelori
 
-Sam Crane and Kaan Göksal subsequently founded [Pelori](http://www.pelori.io) as a computer vision provider for public safety. Pelori provides deployment and server maintenance solutions, and is a major contributor to the FlyRight source code.
+Sam Crane subsequently founded [Pelori](http://www.pelori.io) as a computer vision provider for public safety. Pelori provides deployment and server maintenance solutions, and is a major contributor to the FlyRight source code.
