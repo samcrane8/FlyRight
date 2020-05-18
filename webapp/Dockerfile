@@ -3,7 +3,8 @@ FROM node:lts-alpine
 RUN npm config set unsafe-perm true
 
 # install simple http server for serving static content
-RUN npm install -g yarn http-server
+# RUN npm install -g yarn http-server
+# Remove this because we have http-server in the default build
 
 # make the 'app' folder the current working directory
 WORKDIR /usr/src/app
