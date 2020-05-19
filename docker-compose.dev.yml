@@ -2,24 +2,19 @@ version: '3'
 
 services:
   db:
-    image: kartoza/postgis:10.0-2.4
+    image: kartoza/postgis
     environment:
       - POSTGRES_PASS=postgres
       - POSTGRES_USER=postgres
-    ports:
-      - 5432:5432
-    expose:
-      - 5432
-    restart: always
     volumes:
-      - $HOME/postgres_data:/var/lib/postgresql
+      - postgres_data:/var/lib/postgresql/data/
   business-logic:
     build:
       context: business-logic-server
       dockerfile: Dockerfile
-    command: gunicorn --bind 0.0.0.0:8000 icarus_backend.wsgi:application
+    command: python3.7 manage.py runserver 0.0.0.0:8000
     environment:
-      - DJANGO_DEBUG=disabled
+      - DJANGO_DEBUG=enabled
       - SQL_DATABASE=gis
       - FLYRIGHT_BUILD=DEV
       - SQL_HOST=db
@@ -28,13 +23,12 @@ services:
       - SQL_PASSWORD=postgres
       - SQL_ENGINE=django.contrib.gis.db.backends.postgis
       - DATABASE=postgres
-      - EMAIL_ADDRESS=${EMAIL_ADDRESS}
-      - EMAIL_HOST=${EMAIL_HOST}
+      - EMAIL_ADDRESS=example@place.com
       - SLACKBOT_WEBHOOK_URL=http://something.slack.com
       - SUPERUSER_USERNAME=admin
       - SUPERUSER_PASSWORD=password
       - SUPERUSER_EMAIL=admin@password.com
-      - SLACKBOT_ENABLED=enabled
+      - SLACKBOT_ENABLED=disabled
     volumes:
       - .:/usr/src/app
     ports:
@@ -49,7 +43,8 @@ services:
     environment:
       - HOST=0.0.0.0
       - PORT=8080
-      - VUE_APP_BUSINESS_LOGIC_HOST=${VUE_APP_BUSINESS_LOGIC_HOST}
+      - VUE_APP_BUSINESS_LOGIC_HOST=business-logic:8000
+      - CHOKIDAR_USEPOLLING=true
       - CLIENT_ID=1
       - CLIENT_SECRET=2
     volumes:
@@ -58,31 +53,13 @@ services:
       - 8080:8080
     expose:
       - 8080
-  nginx:
-    build: ./nginx
-    environment:
-      - WEBAPP_DOMAIN=flyright.police.gatech.edu
-      - API_DOMAIN=flyright-api.police.gatech.edu
-    ports:
-      - 443:443
-    expose:
-      - 443
-    depends_on:
-      - web
-      - business-logic
   redis:
     image: redis
     ports:
       - 6379:6379
-  celery-worker:
-    build:
-      context: business-logic-server
-      dockerfile: prod.Dockerfile
-    command: celery worker -A icarus_backend --loglevel=debug --concurrency=1
-    volumes:
-      - .:/usr/src/app
-    depends_on:
-      - redis
-    links:
-      - redis
+    expose:
+      - 6379
 
+
+volumes:
+  postgres_data:
