@@ -14,9 +14,9 @@ services:
       dockerfile: Dockerfile
     command: python3.7 manage.py runserver 0.0.0.0:8000
     environment:
-      - DJANGO_DEBUG=enabled
+      - DJANGO_DEBUG=disabled
       - SQL_DATABASE=gis
-      - FLYRIGHT_BUILD=DEV
+      - FLYRIGHT_BUILD=PROD
       - SQL_HOST=db
       - SQL_PORT=5432
       - SQL_USER=postgres
