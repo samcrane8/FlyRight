@@ -43,16 +43,12 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'disabled') == 'enabled'
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
     'localhost:80',
-    'dev.icarusmap.com',
-    'icarusmap.com',
-    'www.icarusmap.com',
-    'api.icarusmap.com',
     'flyright-api.police.gatech.edu',
 )
 
 EMAIL_USE_SSL = False
 EMAIL_USE_TLS = False
-EMAIL_HOST = os.environ.get('EMAIL_HOST', '')
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'outbound.gatech.edu')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 EMAIL_PORT = os.environ.get('EMAIL_PORT', 25)
