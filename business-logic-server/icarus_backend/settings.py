@@ -42,7 +42,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'disabled') == 'enabled'
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
-    'localhost:8080',
+    'localhost:80',
     'dev.icarusmap.com',
     'icarusmap.com',
     'www.icarusmap.com',
