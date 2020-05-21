@@ -18,24 +18,15 @@
 					:to="item.path">
 					<span style="color:white;"> {{ item.title }} </span>
 				</v-btn>
-				<v-menu offset-y
-				v-if="this.departments.length > 0 && logged_in">
-					<v-btn
-						flat
-						slot="activator"
-					>
-						<span style="color:white;"> DEPARTMENT </span>
-					</v-btn>
-					<v-list>
-						<v-list-tile
-							v-for="(department, index) in departments"
-							:key="index"
-							@click="toDepartment(department)"
-						>
-							<v-list-tile-title>{{ department.name }}</v-list-tile-title>
-						</v-list-tile>
-					</v-list>
-				</v-menu>
+				
+				<v-btn
+					flat
+					v-for="(department, index) in departments"
+					:key="index"
+					@click="toDepartment(department)">
+					<span style="color:white;"> DASHBOARD </span>
+				</v-btn>
+
 			</v-toolbar-items>
 			<v-spacer></v-spacer>
       <v-menu offset-y v-if="logged_in"
@@ -92,10 +83,10 @@
 				</v-btn>
 				<v-list>
 					<v-list-tile to="/settings">
-						<v-list-tile-title> settings</v-list-tile-title>
+						<v-list-tile-title> Settings</v-list-tile-title>
 					</v-list-tile>
 					<v-list-tile @click="_logout()">
-						<v-list-tile-title> sign out</v-list-tile-title>
+						<v-list-tile-title>Log out</v-list-tile-title>
 					</v-list-tile>
 				</v-list>
 			</v-menu>

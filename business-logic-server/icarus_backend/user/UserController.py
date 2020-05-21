@@ -21,7 +21,7 @@ class UserController:
                                             first_name=first_name,
                                             last_name=last_name,
                                             role='pilot')
-            user.is_active = False
+            user.is_active = True
             user.save()
             send_verification_email.delay(user.username, user.email, user.id, domain)
             return 200, 'User successfully registered.'

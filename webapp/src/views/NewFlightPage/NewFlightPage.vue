@@ -72,10 +72,11 @@
         <div>
           <h3 class="headline mb-1">DISCLAIMER</h3>
           <p>“Please note, filing a Flight Plan with GTPD does NOT relieve the Pilot of the responsibility
-              of adhering to all FAA regulations and community-based safety guidelines. The ICARUS Campus Drone 
-              Management System is NOT currently integrated with the FAA. You, the Pilot, are responsible for 
+              of adhering to all FAA regulations and community-based safety guidelines. The Georgia Tech Police Department Campus Drone
+              Management System is NOT currently integrated with the FAA. You, the Pilot, are responsible for
               contacting any local airport/heliport Air Traffic Control towers in order to comply with
               FAA requirements.”</p>
+          <h4 class="headline mb-1">By Clicking 'Accept', you agree to abide by all FAA regulations.</h4>
         </div>
       </v-card-title>
       <v-card-actions>
@@ -168,7 +169,7 @@
         var temp = {
               "type": "Feature",
               "geometry":{
-                "type": "Polygon", 
+                "type": "Polygon",
                 "coordinates": []
               },
               "properties":{}
@@ -237,7 +238,7 @@
         var geoJ = this.makeGeoJson();
         var response = await this.register_mission(
           this.flight.title,
-          geoJ, 
+          geoJ,
           this.flight.description,
           this.flight.starts_at,
           this.flight.ends_at,
