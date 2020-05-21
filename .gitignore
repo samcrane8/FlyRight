@@ -7,3 +7,4 @@ env/
 *.crt
 *.key
 postgres_data/
+node_modules

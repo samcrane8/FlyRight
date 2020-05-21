@@ -283,8 +283,8 @@
 </script>
 
 <style lang="stylus">
+// <style>
 	@import './stylus/main'
-
 	@require '../../node_modules/vuetify/src/stylus/settings/_colors'
 	@import url("https://fonts.googleapis.com/css?family=Barlow")
 	@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
