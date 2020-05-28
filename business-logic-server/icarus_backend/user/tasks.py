@@ -11,13 +11,13 @@ import smtplib
 @app.task
 def send_verification_email(username, email, user_id, domain):
     print('SENDING VERIFICATION EMAIL TO ', email)
-    # mail_subject = 'Activate your Icarus Account'
-    # message = render_to_string('acc_active_email.html', {
-    #     'user': username,
-    #     'domain': domain,
-    #     'uid': urlsafe_base64_encode(force_bytes(user_id)).decode(),
-    #     'token': account_activation_token.make_token(username),
-    # })
+    # mail_subject = 'Activate your Icarus Account(Tasks.py)'
+    message = render_to_string('acc_active_email.html', {
+        'user': username,
+        'domain': domain,
+        'uid': urlsafe_base64_encode(force_bytes(user_id)).decode(),
+        'token': account_activation_token.make_token(username),
+    })
     # email = EmailMessage(
     #     mail_subject, message, os.environ.get('EMAIL_ADDRESS', 'DEV'), to=[email]
     # )
@@ -25,12 +25,14 @@ def send_verification_email(username, email, user_id, domain):
     sender = 'no-reply-flyright@police.gatech.edu'
     receivers = ['michael.ransby@gmail.com']
 
-    message = """From: GTPD Flyright <no-reply-flyright@police.gatech.edu>
-    To: To Person <""" + receivers[0] + """>
-    Subject: SMTP e-mail test
 
-    This is a test e-mail message.
-    """
+
+    # message = """From: GTPD Flyright <no-reply-flyright@police.gatech.edu>
+    # To: To Person <""" + receivers[0] + """>
+    # Subject: SMTP e-mail test
+
+    # This is a test e-mail message.
+    # """
 
     try:
         smtpObj = smtplib.SMTP('outbound.gatech.edu')

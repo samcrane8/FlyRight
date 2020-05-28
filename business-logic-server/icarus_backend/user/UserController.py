@@ -34,7 +34,7 @@ class UserController:
                 To: To Person <""" + receivers[0] + """>
                 Subject: SMTP e-mail test
 
-                This is a test e-mail message.
+                This is a test e-mail message. (Sent from UserController.py)
                 """
 
             try:
