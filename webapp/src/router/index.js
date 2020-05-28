@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import axios from 'axios'
-import VueAxios from 'vue-axios'
-
 
 const routerOptions = [
   { path: '/', view: 'LandingPage',
@@ -48,11 +46,12 @@ const router = new Router({
 })
 
 router.beforeEach(async (to, from, next) => {
+  let url
   if(to.meta.mustBeLoggedOut) {
     console.log('aqui')
     console.log( process.env.VUE_APP_BUSINESS_LOGIC_HOST)
     const access_token = window.localStorage.getItem('access_token')
-    var url = process.env.VUE_APP_BUSINESS_LOGIC_HOST + '/user/is_logged_in/'
+    url = process.env.VUE_APP_BUSINESS_LOGIC_HOST + '/user/is_logged_in/'
     const response = await axios.get(url, {
       headers: {'Authorization': 'Bearer ' + access_token}
     });
@@ -63,7 +62,7 @@ router.beforeEach(async (to, from, next) => {
 
   if(to.meta.mustBeLoggedIn) {
     const access_token = window.localStorage.getItem('access_token')
-    var url = process.env.VUE_APP_BUSINESS_LOGIC_HOST + '/user/is_logged_in/'
+    url = process.env.VUE_APP_BUSINESS_LOGIC_HOST + '/user/is_logged_in/'
     const response = await axios.get(url, {
       headers: {'Authorization': 'Bearer ' + access_token}
     });

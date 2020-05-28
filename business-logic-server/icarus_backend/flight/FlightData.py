@@ -2,7 +2,7 @@ from django.utils.dateparse import parse_datetime
 
 
 class FlightData:
-
+    # Constructor
     def __init__(self, id, title, type, description,
                  starts_at, ends_at, coordinates, scheduling_rule=None):
         self.id = id
@@ -14,6 +14,7 @@ class FlightData:
         self.coordinates = coordinates
         self.scheduling_rule = scheduling_rule
 
+    # Utility constructor, return a new object from JSON
     @staticmethod
     def from_json(json_object):
         title = json_object['title']

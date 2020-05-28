@@ -1,6 +1,7 @@
-import json
-
 from django.contrib.auth import authenticate
+from users.tokens import account_activation_token
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
 from users.models import IcarusUser as User
 from icarus_backend.pilot.PilotModel import Pilot
 from icarus_backend.user.tasks import send_verification_email
@@ -10,7 +11,7 @@ import smtplib
 class UserController:
 
     @staticmethod
-    def register_user(username, email, password, first_name, last_name, domain)-> (int, str):
+    def register_user(username, email, password, first_name, last_name, domain) -> (int, str):
         user = User.objects.filter(email=email).first()
         if user is not None:
             return 400, 'Email address has already been taken.'

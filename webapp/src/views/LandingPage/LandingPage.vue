@@ -9,8 +9,8 @@
         <v-layout column style="margin-top:25vh">
           <v-flex mt-2>
             <v-flex class="text-xs-center" style="color:#ffffff">
-              <span style="font-size:30px;color:#ffffff;">Campus Drone Management</span><br/>
-              <span style="font-size:20px;color:#ffffff;">The drone policy toolkit.</span>
+              <span style="font-size:30px;color:#ffffff;">GTPD Flyright</span><br/>
+              <span style="font-size:20px;color:#ffffff;">Ensure compliance and exclusivity for your flights on campus.</span>
             </v-flex>
           </v-flex>
         </v-layout>
@@ -21,7 +21,6 @@
           />
         </v-flex>
       </v-layout>
-      <first-section/>
       <icarus-footer/>
     </section>
   </v-content>
@@ -44,7 +43,7 @@
   import VueAxios from 'vue-axios'
   import VideoBg from 'vue-videobg'
   import RegistrationStepper from './RegistrationStepper'
-  import FirstSection from './FirstSection'
+  // import FirstSection from './FirstSection'
   import Footer from '@/components/Footer'
 
   Vue.use(VueAxios, axios)
@@ -54,7 +53,6 @@
     components: {
       'video-bg': VideoBg,
       'reg-step': RegistrationStepper,
-      'first-section': FirstSection,
       'icarus-footer': Footer,
     },
     methods: {
