@@ -25,9 +25,8 @@
 </template>
 
 <script>
-  import Vue from 'vue';
   import router from '@/router'
-  
+
   export default {
     name: 'icarus-footer',
     methods: {

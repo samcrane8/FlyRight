@@ -24,20 +24,29 @@ class FlightController:
 
     @staticmethod
     def register(flight_data: FlightData, user, domain) -> (int, dict):
+        # Both starts_at and ends_at must have a timezone attached, checked by the is_aware function.
         if not is_aware(flight_data.starts_at):
             return 400, {'message': 'Starts at has no timezone.'}
         if not is_aware(flight_data.ends_at):
-            return 400, {'message':'Ends at has no timezone.'}
+            return 400, {'message': 'Ends at has no timezone.'}
+        # Make new UUIDs for both the flight and the clearance
         flight_data.id = uuid.uuid4()
         clearance_id = uuid.uuid4()
+        # Make the new clearance with the information we have
         clearance = Clearance(clearance_id=clearance_id, created_by=user.username, state='PENDING',
                               message='')
+        # TODO Check whether lt 4 is correct, the error message says lt 3?
         if len(flight_data.coordinates) < 4:
             return 403, {'message': 'Less than 3 coordinates given, this is not an area definition.'}
         new_flight = FlightDTO.data_to_db(flight_data, user, clearance)
+
+        # Commit the clearance and the flight to the DB
         clearance.save()
         new_flight.save()
+
+        # Find the departments which this flight intersects with
         departments = Department.objects.filter(area__intersects=new_flight.area).all()
+        # Notify all airbosses and wtch commanders of this request
         for department in departments:
             for airboss in department.airbosses.all():
                 notify.send(user, recipient=airboss, verb='registered a flight', action_object=new_flight)
@@ -47,6 +56,7 @@ class FlightController:
                 notify.send(user, recipient=watch_commanders, verb='registered a flight', action_object=new_flight)
                 if not DEBUG:
                     new_flight_registered_email.delay(watch_commanders.username, watch_commanders.email, watch_commanders.id, domain)
+        # We made it!
         return 200, {'id': str(flight_data.id)}
 
     @staticmethod

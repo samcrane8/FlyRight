@@ -11,9 +11,9 @@
                 </v-flex>
                 <v-flex>
                     <v-container fluid>
-                      <v-radio-group 
-                        v-model="type0" 
-                        required 
+                      <v-radio-group
+                        v-model="type0"
+                        required
                         :rules="[v => !!v || 'You must specify a Type!']"
                       >
                         <v-radio label="Hover" value="Hover"></v-radio>
@@ -62,11 +62,11 @@
                   ></v-text-field>
                 </v-flex>
             <div id="add_drone_button" >
-              <v-btn 
+              <v-btn
                 @click="submit"
                 :disabled="!valid"
                 v-on:click="registerDrone()"
-              > Add Drones 
+              > Add Drones
               </v-btn>
             </div>
             </v-layout>
@@ -162,8 +162,6 @@
           </v-data-table>
         </v-card>
       </v-flex>
-      </v-flex>
-
 
     </v-layout>
 </template>
@@ -196,7 +194,7 @@ export default {
       tmp: '',
       search: '',
       pagination: {},
-      headers: [     
+      headers: [
         { text: 'Color', value: 'color' },
         { text: 'ID', value: 'id' },
         { text: 'Manufacturer', value: 'manufacturer' },
@@ -273,7 +271,7 @@ export default {
           } else if (response.data['code'] == 31) {
             throw error;
           }
-        }, 
+        },
         error => {
         })
     },
@@ -317,7 +315,7 @@ export default {
   background-color: #F0F0F0;
 }
 #drone_ADD {
-  margin-top: 80px; 
+  margin-top: 80px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 10px;

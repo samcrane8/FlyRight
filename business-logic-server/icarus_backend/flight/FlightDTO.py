@@ -5,7 +5,7 @@ from icarus_backend.clearance.ClearanceModel import Clearance
 from django.contrib.gis.geos import Polygon
 from icarus_backend.utils import set_lat_range
 
-
+# TODO what does DTO mean?
 class FlightDTO:
 
     @staticmethod

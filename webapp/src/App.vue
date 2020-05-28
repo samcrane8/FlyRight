@@ -18,7 +18,7 @@
 					:to="item.path">
 					<span style="color:white;"> {{ item.title }} </span>
 				</v-btn>
-				
+
 				<v-btn
 					flat
 					v-for="(department, index) in departments"
@@ -131,8 +131,8 @@
 	Vue.use(VueAxios, axios)
 	Vue.use(Vuetify, {
 		theme: {
-			primary: '#04274A',
-			secondary: '#E5B43D',
+			primary: '#B3A369',
+			secondary: '#003057',
 			accent: '#8c9eff',
 			error: '#b71c1c'
 		}
@@ -231,7 +231,7 @@
             this.notification_color = "white"
           }
         }
-        
+
         response = await this.notification_feed(
           this.$store.state.access_token, 7
         );

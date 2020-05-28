@@ -1,2 +1,4 @@
 nginx.conf
 certs/*
+server.key
+*.key

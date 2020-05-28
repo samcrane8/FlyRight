@@ -134,7 +134,7 @@
     data() {
       return {
         frequency: "Does Not Repeat",
-        frequency_options: ["Does Not Repeat", "Weekly"],
+        frequency_options: ["Does Not Repeat","Daily", "Weekly", "Monthly"],
         weekdays: ['M', 'T', 'W', 'TH', 'F', 'S', 'SU'],
         picked_weekdays: [],
         ends_at: '',

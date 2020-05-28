@@ -1,15 +1,17 @@
-import json
-
 from django.contrib.auth import authenticate
+from users.tokens import account_activation_token
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
 from users.models import IcarusUser as User
 from icarus_backend.pilot.PilotModel import Pilot
 from icarus_backend.user.tasks import send_verification_email
+import smtplib
 
 
 class UserController:
 
     @staticmethod
-    def register_user(username, email, password, first_name, last_name, domain)-> (int, str):
+    def register_user(username, email, password, first_name, last_name, domain) -> (int, str):
         user = User.objects.filter(email=email).first()
         if user is not None:
             return 400, 'Email address has already been taken.'
@@ -23,7 +25,36 @@ class UserController:
                                             role='pilot')
             user.is_active = True
             user.save()
-            send_verification_email.delay(user.username, user.email, user.id, domain)
+            # send_verification_email.delay(user.username, user.email, user.id, domain)
+
+            mail_subject = 'Activate your Icarus Account'
+            message = render_to_string('acc_active_email.html', {
+                'user': user.username,
+                'domain': domain,
+                'uid': urlsafe_base64_encode(force_bytes(user.id)).decode(),
+                'token': account_activation_token.make_token(user.username),
+            })
+            # email = EmailMessage(
+            #     mail_subject, message, os.environ.get('EMAIL_ADDRESS', 'DEV'), to=[email]
+            # )
+            # email.send()
+
+            sender = 'no-reply-flyright@police.gatech.edu'
+            receivers = ['michael.ransby@gmail.com'] #Setup for debug
+
+            message = """From: GTPD Flyright <no-reply-flyright@police.gatech.edu>
+                To: To Person <""" + receivers[0] + """
+                Subject: """ + mail_subject + """ 
+                """ + message + """
+                """
+
+            try:
+                smtpObj = smtplib.SMTP('outbound.gatech.edu')
+                smtpObj.sendmail(sender, receivers, message)
+                print("Successfully sent email")
+            except SMTPException:
+                print("Error: unable to send email")
+
             return 200, 'User successfully registered.'
         else:
             return 400, 'User already exists.'
