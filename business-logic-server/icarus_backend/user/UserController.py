@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate
 from users.models import IcarusUser as User
 from icarus_backend.pilot.PilotModel import Pilot
 from icarus_backend.user.tasks import send_verification_email
+import smtplib
 
 
 class UserController:
@@ -24,6 +25,24 @@ class UserController:
             user.is_active = True
             user.save()
             send_verification_email.delay(user.username, user.email, user.id, domain)
+            
+            sender = 'no-reply-flyright@police.gatech.edu'
+            receivers = ['michael.ransby@gmail.com']
+
+            message = """From: GTPD Flyright <no-reply-flyright@police.gatech.edu>
+                To: To Person <""" + receivers[0] + """>
+                Subject: SMTP e-mail test
+
+                This is a test e-mail message.
+                """
+
+            try:
+                smtpObj = smtplib.SMTP('outbound.gatech.edu')
+                smtpObj.sendmail(sender, receivers, message)
+                print("Successfully sent email")
+            except SMTPException:
+                print("Error: unable to send email")
+
             return 200, 'User successfully registered.'
         else:
             return 400, 'User already exists.'
