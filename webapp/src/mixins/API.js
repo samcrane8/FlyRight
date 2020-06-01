@@ -43,7 +43,7 @@ export default {
       )
     },
     async logout (token) {
-      const url = process.env.VUE_APP_BUSINESS_LOGIC_HOST + '/o/revokse_token/'
+      const url = process.env.VUE_APP_BUSINESS_LOGIC_HOST + '/o/revoke_token/'
       let data = {
         'grant_type': 'password',
         client_id: process.env.CLIENT_ID,

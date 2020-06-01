@@ -1,4 +1,5 @@
 from django.template.response import TemplateResponse
+from django.shortcuts import redirect
 from rest_framework.decorators import api_view
 from django.http import HttpResponse
 import json
@@ -82,8 +83,8 @@ def activate(request, uidb64, token):
     if user is not None and account_activation_token.check_token(user.username, token):
         user.is_active = True
         user.save()
-        # return redirect('home')
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+        return redirect('http://flyright.police.gatech.edu/login')
+        # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
         return HttpResponse('Activation link is invalid!')
 

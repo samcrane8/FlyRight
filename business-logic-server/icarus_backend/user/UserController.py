@@ -1,10 +1,12 @@
 from django.contrib.auth import authenticate
 from users.tokens import account_activation_token
-from django.utils.encoding import force_bytes
-from django.utils.http import urlsafe_base64_encode
+from django.utils.encoding import force_bytes, force_text
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from users.models import IcarusUser as User
 from icarus_backend.pilot.PilotModel import Pilot
 from icarus_backend.user.tasks import send_verification_email
+from django.template.loader import render_to_string
+
 import smtplib
 
 
@@ -23,20 +25,37 @@ class UserController:
                                             first_name=first_name,
                                             last_name=last_name,
                                             role='pilot')
-            user.is_active = True
+            user.is_active = False
             user.save()
             send_verification_email.delay(user.username, user.email, user.id, domain)
             
             sender = 'no-reply-flyright@police.gatech.edu'
             receivers = ['michael.ransby@gmail.com']
 
+            domain = 'http://flyright-api.police.gatech.edu:8000'
+            uidb64 = urlsafe_base64_encode(force_bytes(user.id))
+            token = account_activation_token.make_token(user.username)
+            uid_text = force_text(urlsafe_base64_decode(uidb64))
+
             message = """From: GTPD Flyright <no-reply-flyright@police.gatech.edu>
-                To: To Person <""" + receivers[0] + """>
-                Subject: SMTP e-mail test
+To: To Person <""" + receivers[0] + """>
+Subject: SMTP e-mail test
 
-                This is a test e-mail message. (Sent from UserController.py)
+Link: """ + domain + """/user/activate/""" + uidb64 + """/""" + token + """
+Token: """ + token + """
+uid: """ + uid_text + """
+
+This is a test e-mail message. (Sent from UserController.py)
                 """
+            other_message = render_to_string('acc_active_email.html', {
+                    'user': user.username,
+                    'domain': domain, 
+                    'uid': uidb64,
+                    'token': token
+                    })
 
+
+            print(other_message)
             try:
                 smtpObj = smtplib.SMTP('outbound.gatech.edu')
                 smtpObj.sendmail(sender, receivers, message)
