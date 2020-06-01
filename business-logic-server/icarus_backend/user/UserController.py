@@ -35,27 +35,26 @@ class UserController:
             domain = 'http://flyright-api.police.gatech.edu:8000'
             uidb64 = urlsafe_base64_encode(force_bytes(user.id))
             token = account_activation_token.make_token(user.username)
-            uid_text = force_text(urlsafe_base64_decode(uidb64))
+
+            link = domain + """/user/activate/""" + uidb64 + """/""" + token
 
             message = """From: GTPD Flyright <no-reply-flyright@police.gatech.edu>
 To: To Person <""" + receivers[0] + """>
-Subject: SMTP e-mail test
+Content-type: text/html
+Subject: GTPD Flyright Email Verification
 
-Link: """ + domain + """/user/activate/""" + uidb64 + """/""" + token + """
-Token: """ + token + """
-uid: """ + uid_text + """
+G'day, """ + username + """<br><br>
 
-This is a test e-mail message. (Sent from UserController.py)
-                """
-            other_message = render_to_string('acc_active_email.html', {
-                    'user': user.username,
-                    'domain': domain, 
-                    'uid': uidb64,
-                    'token': token
-                    })
+Please click the link below to activate your GTPD Flyright account.<br><br>
 
+<a href=""" + link+ """>Me!</a><br><br>
 
-            print(other_message)
+Kind Regards,<br>
+Flyright Team.<br>
+(Sent from Tasks.py)
+        """
+
+            print(message)
             try:
                 smtpObj = smtplib.SMTP('outbound.gatech.edu')
                 smtpObj.sendmail(sender, receivers, message)
