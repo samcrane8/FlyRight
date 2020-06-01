@@ -32,7 +32,7 @@ class UserController:
             sender = 'no-reply-flyright@police.gatech.edu'
             receivers = ['michael.ransby@gmail.com']
 
-            domain = 'http://flyright-api.police.gatech.edu:8000'
+            domain = 'https://flyright-api.police.gatech.edu'
             uidb64 = urlsafe_base64_encode(force_bytes(user.id))
             token = account_activation_token.make_token(user.username)
 
@@ -51,13 +51,13 @@ Please click the link below to activate your GTPD Flyright account.<br><br>
 
 Kind Regards,<br>
 Flyright Team.<br>
-(Sent from Tasks.py)
+(Sent from UserController.py)
         """
 
             print(message)
             try:
                 smtpObj = smtplib.SMTP('outbound.gatech.edu')
-                smtpObj.sendmail(sender, receivers, message)
+                # smtpObj.sendmail(sender, receivers, message)
                 print("Successfully sent email")
             except SMTPException:
                 print("Error: unable to send email")
