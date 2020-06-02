@@ -28,39 +28,6 @@ class UserController:
             user.is_active = False
             user.save()
             send_verification_email.delay(user.username, user.email, user.id, domain)
-            
-            sender = 'no-reply-flyright@police.gatech.edu'
-            receivers = ['michael.ransby@gmail.com']
-
-            domain = 'https://flyright-api.police.gatech.edu'
-            uidb64 = urlsafe_base64_encode(force_bytes(user.id))
-            token = account_activation_token.make_token(user.username)
-
-            link = domain + """/user/activate/""" + uidb64 + """/""" + token
-
-            message = """From: GTPD Flyright <no-reply-flyright@police.gatech.edu>
-To: To Person <""" + receivers[0] + """>
-Content-type: text/html
-Subject: GTPD Flyright Email Verification
-
-G'day, """ + username + """<br><br>
-
-Please click the link below to activate your GTPD Flyright account.<br><br>
-
-<a href=""" + link+ """>Me!</a><br><br>
-
-Kind Regards,<br>
-Flyright Team.<br>
-(Sent from UserController.py)
-        """
-
-            print(message)
-            try:
-                smtpObj = smtplib.SMTP('outbound.gatech.edu')
-                # smtpObj.sendmail(sender, receivers, message)
-                print("Successfully sent email")
-            except SMTPException:
-                print("Error: unable to send email")
 
             return 200, 'User successfully registered.'
         else:

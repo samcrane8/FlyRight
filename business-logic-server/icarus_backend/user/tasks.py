@@ -20,7 +20,7 @@ def send_verification_email(username, email, user_id, domain):
     sender = 'no-reply-flyright@police.gatech.edu'
 
     message = """From: GTPD Flyright <no-reply-flyright@police.gatech.edu>
-To: To Person <""" + receivers[0] + """>
+To: """ + username + """ <""" + receivers[0] + """>
 Content-type: text/html
 Subject: GTPD Flyright Email Verification
 
@@ -35,7 +35,6 @@ Flyright Team.<br>
 (Sent from tasks.py)
         """
 
-    print(message)
     try:
         smtpObj = smtplib.SMTP('outbound.gatech.edu')
         smtpObj.sendmail(sender, receivers, message)
