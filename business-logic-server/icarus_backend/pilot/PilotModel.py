@@ -10,7 +10,7 @@ class Pilot(models.Model):
 
     def as_dict(self):
         return {
-            "user_id": self.user.id,
+            "user_id": self.user.id,  # TODO Add ID as a One to One field?
             "remote_pilot_certificate_number": self.remotePilotCertificateNumber,
             "mobile_phone_number": self.mobilePhoneNumber
         }

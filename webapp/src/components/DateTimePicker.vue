@@ -1,89 +1,44 @@
 <template>
-  <v-dialog
-      v-model="dialog"
-      full-width
-      width="290"
-    >
-    <v-text-field
-      slot="activator"
-      label="Datetime"
-      v-model="datetime_formatted"
-      readonly
-      prepend-icon="event"
-      @click="dialog = true"
-    />
-    <v-card>
-      <v-tabs>
-        <v-tabs-bar>
-          <v-tabs-slider color="primary"></v-tabs-slider>
-          <v-tabs-item href="tab-calendar">
-            <v-icon>event</v-icon>
-          </v-tabs-item>
-          <v-tabs-item href="tab-timer">
-            <v-icon>access_time</v-icon>
-          </v-tabs-item>
-          <v-spacer/>
-          <v-btn
-            flat icon
-            color="primary"
-            @click="update"
-          >
-            <v-icon>check</v-icon>
-          </v-btn>
-        </v-tabs-bar>
-        <v-tabs-items>
-          <v-tabs-content id="tab-calendar">
-            <v-date-picker
-              ref="datepicker"
-              v-model="date"
-              color ="primary"
-              :show-current="false"
-            />
-          </v-tabs-content>
-          <v-tabs-content id="tab-timer">
-            <v-time-picker
-              ref="timepicker"
-              v-model="time"
-              color ="primary"
-              :show-current="false"
-            />
-          </v-tabs-content>
-        </v-tabs-items>
-      </v-tabs>
-    </v-card>
-  </v-dialog>
+  <div>
+    <v-flex xs12 sm6 md4>
+      <v-menu
+        ref="menu"
+        v-model="menu"
+        :close-on-content-click="false"
+        :nudge-right="40"
+        :return-value.sync="date"
+        lazy
+        transition="scale-transition"
+        offset-y
+        full-width
+        min-width="290px"
+      >
+        <template v-slot:activator="{ on }">
+          <v-text-field
+            v-model="date"
+            label="Picker in menu"
+            prepend-icon="event"
+            readonly
+            v-on="on"
+          ></v-text-field>
+        </template>
+        <v-date-picker v-model="date" no-title scrollable>
+          <v-spacer></v-spacer>
+          <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
+          <v-btn flat color="primary" @click="$refs.menu.save(date)">OK</v-btn>
+        </v-date-picker>
+      </v-menu>
+    </v-flex>
+    <v-spacer></v-spacer>
+  </div>
 </template>
 
 <script>
-  import moment from 'moment'
-
   export default {
     props: ['value'],
-    data() {
-      return {
-        dialog: false,
-        date: '',
-        time: '',
-        datetime_formatted: ''
-      }
-    },
-    methods: {
-      update() {
-        this.dialog = false
-        this.datetime_formatted = moment(`${this.date} ${this.time}`, 'YYYY-MM-DD h:mm a').format('MMMM Do YYYY, hh:mm a')
-        this.$emit('input', moment(`${this.date} ${this.time}`, 'YYYY-MM-DD h:mm a').toISOString())
-      },
-    },
-    created() {
-      if (this.value) {
-        this.date = moment(this.value).format('YYYY-MM-DD');
-        this.time = moment(this.value).format('h:mm a');
-        this.datetime_formatted = moment(this.value).format('MMMM Do YYYY, hh:mm a')
-      } else {
-        this.date = moment().format('YYYY-MM-DD');
-        this.time = moment().format('h:mm a');
-        this.datetime_formatted = moment().format('MMMM Do YYYY, hh:mm a')
-      }
-    }
+    data: () => ({
+      date: new Date().toISOString().substr(0, 10),
+      menu: false
+    })
   }
 </script>

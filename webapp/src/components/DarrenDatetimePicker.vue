@@ -60,8 +60,6 @@
 </template>
 
 <script>
-  import Vue from 'vue'
-  import Vuetify from 'vuetify'
   import moment from 'moment'
 
   const DEFAULT_DATE_FORMAT = 'YYYY-MM-DD'
@@ -126,8 +124,7 @@
     computed: {
       datePart: {
         get () {
-          let val = this.selectedDatetime ? moment(this.selectedDatetime).format(DEFAULT_DATE_FORMAT) : ''
-          return val
+          return this.selectedDatetime ? moment(this.selectedDatetime).format(DEFAULT_DATE_FORMAT) : ''
         },
         set (val) {
           this.dateSelected = true
@@ -142,8 +139,7 @@
       },
       timePart: {
         get () {
-          let val = this.selectedDatetime ? moment(this.selectedDatetime).format(DEFAULT_TIME_FORMAT) : DEFAULT_TIME
-          return val
+          return this.selectedDatetime ? moment(this.selectedDatetime).format(DEFAULT_TIME_FORMAT) : DEFAULT_TIME
         },
         set (val) {
           if (this.$refs.timer.selectingHour) {
