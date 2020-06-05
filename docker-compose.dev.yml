@@ -43,7 +43,7 @@ services:
     environment:
       - HOST=0.0.0.0
       - PORT=8080
-      - VUE_APP_BUSINESS_LOGIC_HOST=business-logic:8000
+      - VUE_APP_BUSINESS_LOGIC_HOST=http://business-logic:8000
       - CHOKIDAR_USEPOLLING=true
       - CLIENT_ID=1
       - CLIENT_SECRET=2

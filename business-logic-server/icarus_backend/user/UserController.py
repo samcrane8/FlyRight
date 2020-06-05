@@ -33,7 +33,7 @@ class UserController:
             # Commit to DB
             user.save()
             # Send the verification email.
-            send_verification_email.delay(user.first_name¡, user.email, user.id, domain)
+            send_verification_email.delay(user.first_name, user.email, user.id, domain)
 
             return 200, 'User successfully registered.'
         else:

@@ -25,30 +25,9 @@
             v-model="flight.description">
           </v-textarea>
         </v-list>
-
         Starts At:
-        <div class="text-xs-center">
-          <v-menu offset-y>
-            <template v-slot:activator="{ on }">
-              <v-btn
-                color="primary"
-                dark
-                v-on="on"
-              >
-                Dropdown
-              </v-btn>
-            </template>
-            <v-list>
-              <v-list-tile
-                v-for="(item, index) in items"
-                :key="index"
-                @click=""
-              >
-                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-              </v-list-tile>
-            </v-list>
-          </v-menu>
-        </div>
+        <datetimepicker v-model="flight.starts_at"
+                        style="margin-right:10px;"/>
         Ends At:
         <datetimepicker v-model="flight.ends_at"
                         style="margin-right:10px;"/>
@@ -146,16 +125,15 @@
   import DateTimePicker from '@/components/DateTimePicker'
   import moment from 'moment'
   import API from '@/mixins/API'
-
   export default {
     components: {
       'datetimepicker': DateTimePicker
     },
     mixins: [API],
-    data () {
+    data() {
       return {
-        frequency: 'Does Not Repeat',
-        frequency_options: ['Does Not Repeat', 'Weekly'],
+        frequency: "Does Not Repeat",
+        frequency_options: ["Does Not Repeat", "Weekly"],
         weekdays: ['M', 'T', 'W', 'TH', 'F', 'S', 'SU'],
         picked_weekdays: [],
         ends_at: '',
@@ -168,42 +146,34 @@
           ends_at: '',
           added_drones: []
         },
-        types: [
+        types:[
           'Recreational', 'Commercial', 'Research'
         ],
         available_drones: ['droney', 'other drone'],
-
-        items: [
-          { title: 'Click Me' },
-          { title: 'Click Me' },
-          { title: 'Click Me' },
-          { title: 'Click Me 2' }
-        ]
-
       }
     },
-    mounted () {
+    mounted() {
       this.flight.starts_at = moment().toISOString()
       this.flight.ends_at = moment().toISOString()
       this.ends_at = moment().toISOString()
       this.get_drones()
     },
     methods: {
-      submit () {
+      submit() {
         var flight_plan = {
           flight: this.flight,
           scheduling: {
-            parameters: { 'days': this.picked_weekdays },
+            parameters: {'days': this.picked_weekdays},
             frequency: this.frequency,
             ends_at: this.ends_at
           }
         }
         this.$emit('submit_flight', flight_plan)
       },
-      async get_drones () {
+      async get_drones() {
         const response = await this.get_user_drones(
           this.$store.state.access_token
-        )
+        );
         this.available_drones = response.data
       }
     }

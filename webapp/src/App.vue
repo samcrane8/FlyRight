@@ -1,5 +1,5 @@
 <template>
-	<v-app id="inspire">
+	<v-app id="app">
 		<v-toolbar primary fixed :flat = "is_flat" :color="toolbar_color"
 		>
 			<v-toolbar-title style="margin-right:20px;">
