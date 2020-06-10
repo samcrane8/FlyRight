@@ -1,9 +1,8 @@
 <template>
   <div>
     <v-content style="margin-top:80px;margin-left:10px;margin-right:10px">
-      <span style="font-size:30px;font-weight:200;margin-left:10px"> FLIGHT DETAILS </span>
-      <span style="margin-top:-20px;"
-      v-if="flight"> {{flight.title}} </span>
+      <span style="font-size:30px;font-weight:200;margin-left:10px" v-if="flight"> {{flight.title}} </span>
+      <span style="font-size:30px;font-weight:200;margin-left:10px" v-else="flight"> FLIGHT DETAILS </span>
       <v-layout column>
         <v-layout row>
           <v-layout column
@@ -14,14 +13,14 @@
                   <map-thumbnail
                   :mission="flight"
                   v-if="flight"
-                  width="45vw"
+                  width="95vw"
                   height="45vh"
                   :zoomControl="true"
                   :dragging="true"/>
                 </v-flex>
               </v-layout>
             </v-container>
-            <flight-details-info 
+            <flight-details-info
             xs4
             v-if="flight"
             :flight="flight"
@@ -31,10 +30,10 @@
             :is_gov_official="is_gov_official"
             :user_info="user_info"/>
           </v-layout>
-          <flight-details-chat
-          style="width:45vw"
-          xs8
-          :flight="flight"/>
+<!--          <flight-details-chat-->
+<!--          style="width:45vw"-->
+<!--          xs8-->
+<!--          :flight="flight"/>-->
         </v-layout>
       </v-layout>
       <flight-details-drones
@@ -98,7 +97,7 @@
         if (response.status == 200) {
           this.user_info = response.data
         }
-      }, 
+      },
       async load_data() {
         this.flight_id = this.$route.query.id
         if (this.flight_id === 'null') {

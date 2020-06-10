@@ -3,7 +3,7 @@
     style="width:40vw;"
   >
     <div
-      style="margin-top:10px;margin-left;10px;margin-right:10px;"
+      style="margin-top:10px;margin-left:10px;margin-right:10px;"
     >
       <div
         style="font-weight:200;
