@@ -32,7 +32,7 @@
                                 <v-spacer></v-spacer>
                                 <v-list-item-title>Drones</v-list-item-title>
                             </v-list-item>
-                            <v-list-item v-if="">
+                            <v-list-item>
                                 <v-list-item-icon>
                                     <v-icon>mdi-view-dashboard</v-icon>
                                 </v-list-item-icon>
