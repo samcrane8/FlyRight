@@ -3,7 +3,7 @@
       style="width:40vw;"
     >
       <div
-      style="margin-top:10px;margin-left;10px;margin-right:10px;"
+      style="margin-top:10px;margin-left:10px; margin-right:10px;"
       >
         <div
           style="font-weight:200;
@@ -15,11 +15,11 @@
         <div
         style="margin:10px;">
           <v-list dense class="pt-0">
-            <v-text-field 
+            <v-text-field
             label="Flight Title"
             v-model="flight.title">
             </v-text-field>
-            <v-text-field 
+            <v-text-field
             label="Description"
             multi-line
             v-model="flight.description">
@@ -178,7 +178,7 @@
         var flight_plan = {
           flight: this.flight,
           scheduling: this.flight.scheduling
-        } 
+        }
         delete flight_plan.flight.scheduling
         this.$emit('submit_flight', flight_plan)
       }

@@ -21,103 +21,168 @@
           </v-btn>
 
 
-          <template v-slot:extension>
-            <v-tabs
-              v-model="model"
-              centered
-              color="cyan"
-              slider-color="yellow"
-            >
-              <v-tab
-                :key="1"
-                :href="`#tab-1`"
-              >
-                Item 1
-              </v-tab>
-              <v-tab
-                :key="2"
-                :href="`#tab-2`"
-              >
-                Item 2
-              </v-tab>
-            </v-tabs>
-          </template>
+
+        <v-tabs
+          slot="extension"
+          v-model="model"
+          centered
+          color="primary"
+          slider-color="secondary"
+        >
+          <v-tab
+            v-for="tab in tabs"
+            :key="tab.id"
+            :href="`#${tab.id}`"
+          >
+            {{ tab.title }}
+          </v-tab>
+        </v-tabs>
         </v-toolbar>
-
         <v-tabs-items v-model="model">
-          <v-tab-item
-            :key="1"
-            :value="`tab-1`"
-          >
-            <v-card flat>
-              meow
-            </v-card>
-          </v-tab-item>
+          <v-tab-item :id="`flight-details`">
 
-          <v-tab-item
-            :key="2"
-            :value="`tab-2`"
-          >
-            <v-card flat>
-              meowe
-            </v-card>
-          </v-tab-item>
 
+            <v-card flat>
+              <v-card-text>
+                <v-layout column>
+                  <v-layout row>
+                    <v-layout column>
+                      <v-layout row style="margin-top:10px;">
+                        <v-flex>
+                          <h4>Start Date/Time:</h4> <span>{{flight.starts_at | datetime_filter}}</span>
+                        </v-flex>
+                        <v-flex>
+                          <h4>End Date/Time: </h4> <span>{{flight.ends_at | datetime_filter}}</span>
+                        </v-flex>
+                      </v-layout>
+                      <v-layout row>
+                        <v-flex>
+                          <h4>Type: </h4><span>{{flight.type}}</span>
+                        </v-flex>
+                        <v-flex>
+                          <h4>Number of Drones: </h4><span>{{flight.num_drones}}</span>
+                        </v-flex>
+                      </v-layout>
+                      <v-layout row v-if="flight.scheduling">
+                        <v-flex>
+                          <h4>Frequency: </h4><span>{{flight.scheduling.frequency}}</span><br>
+                          <span :key="index"
+                                v-for="(day, index) in flight.scheduling.parameters.days"> {{day}} </span>
+                        </v-flex>
+                        <v-flex>
+                          <h4>Ends At: </h4><span>{{flight.scheduling.ends_at | datetime_filter}}</span>
+                        </v-flex>
+                      </v-layout>
+                    </v-layout>
+                  </v-layout>
+                </v-layout>
+              </v-card-text>
+            </v-card>
+
+
+
+          </v-tab-item>
+          <v-tab-item :id="`description`">
+            <description-tab :description="flight.description"/>
+          </v-tab-item>
+          <v-tab-item :id="`commander`">
+
+            <commander-info :commander_name="flight.commander_id" :created_by="flight.created_by"/>
+
+          </v-tab-item>
+          <v-tab-item :id="`clearance`">
+
+
+            <v-card flat>
+              <v-card-text>
+                <v-layout column>
+                  <v-layout row v-if="flight.can_edit_clearance">
+                    <v-flex style="margin-top:5px;">
+                      <v-text-field
+                        label="Write a short message to the commander to explain how you're setting the status."
+                        multi-line
+                        rows="3"
+                        v-if="selected"
+                        v-model="selected"
+                      >
+                      </v-text-field>
+                      <v-text-field
+                        label="Write a short message to the commander to explain how you're setting the status."
+                        multi-line
+                        rows="3"
+                        v-else
+                        v-model="flight.clearance.message"
+                      >
+                      </v-text-field>
+                    </v-flex>
+                    <v-layout column>
+                      <select
+                        style="border:1px solid gray;
+                      border-radius:2px;"
+                        v-model="selected"
+                      >
+                        <option
+                          :key="presetClearance.text"
+                          :value="presetClearance.value"
+                          v-for="presetClearance in presetClearances">
+                          {{ presetClearance.text }}
+                        </option>
+                      </select>
+                      <v-select
+                        :items="clearance_states"
+                        bottom
+                        label="Set Clearance"
+                        single-line
+                        v-model="clearance.state"
+                      ></v-select>
+                    </v-layout>
+
+                  </v-layout>
+                  <v-layout row v-if="!flight.can_edit_clearance">
+                    <v-flex style="margin-top:5px;">
+                      <h4>Message:</h4>
+                      <span
+                        style="margin-top:10px;
+                      height:80px;
+                      overflow:scroll;"
+                        v-if="flight.clearance.message!=null"
+                      >
+                      {{flight.clearance.message}}
+                    </span>
+                      <span
+                        style="margin-top:10px;
+                      height:80px;
+                      overflow:scroll;"
+                        v-else-if="message==null"
+                      >
+                      No message currently
+                    </span>
+                    </v-flex>
+                    <v-flex style="margin-top:5px;">
+                      <h4>Clearance:</h4>
+                      <span
+                        style="margin-top:10px;
+                      height:80px;
+                      overflow:scroll;"
+                      >
+                      {{flight.clearance.state}}
+                    </span>
+                    </v-flex>
+                  </v-layout>
+                  <v-btn :disabled="clearance.currState===''" @click="update_clearance"
+                         flat v-if="is_gov_official">Save Clearance
+                  </v-btn>
+                </v-layout>
+              </v-card-text>
+            </v-card>
+
+
+
+          </v-tab-item>
         </v-tabs-items>
+
       </div>
     </v-card>
-
-    <div>
-      <v-toolbar
-        color="cyan"
-        dark
-        tabs
-      >
-        <v-toolbar-side-icon></v-toolbar-side-icon>
-
-        <v-toolbar-title>Page title</v-toolbar-title>
-
-        <v-spacer></v-spacer>
-
-        <v-btn icon>
-          <v-icon>search</v-icon>
-        </v-btn>
-
-        <v-btn icon>
-          <v-icon>more_vert</v-icon>
-        </v-btn>
-
-        <template v-slot:extension>
-          <v-tabs
-            v-model="model"
-            centered
-            color="cyan"
-            slider-color="yellow"
-          >
-            <v-tab
-              v-for="i in 3"
-              :key="i"
-              :href="`#tab-${i}`"
-            >
-              Item {{ i }}
-            </v-tab>
-          </v-tabs>
-        </template>
-      </v-toolbar>
-
-      <v-tabs-items v-model="model">
-        <v-tab-item
-          v-for="i in 3"
-          :key="i"
-          :value="`tab-${i}`"
-        >
-          <v-card flat>
-           meow spaghetti
-          </v-card>
-        </v-tab-item>
-      </v-tabs-items>
-    </div>
-
 
     <v-card
       style="margin:10px;">
@@ -176,43 +241,7 @@
           <v-tabs-content
             id="tab-details"
           >
-            <v-card flat>
-              <v-card-text>
-                <v-layout column>
-                  <v-layout row>
-                    <v-layout column>
-                      <v-layout row style="margin-top:10px;">
-                        <v-flex>
-                          <h4>Start Date/Time:</h4> <span>{{flight.starts_at | datetime_filter}}</span>
-                        </v-flex>
-                        <v-flex>
-                          <h4>End Date/Time: </h4> <span>{{flight.ends_at | datetime_filter}}</span>
-                        </v-flex>
-                      </v-layout>
-                      <v-layout row>
-                        <v-flex>
-                          <h4>Type: </h4><span>{{flight.type}}</span>
-                        </v-flex>
-                        <v-flex>
-                          <h4>Number of Drones: </h4><span>{{flight.num_drones}}</span>
-                        </v-flex>
-                      </v-layout>
-                      <v-layout row
-                                v-if="flight.scheduling">
-                        <v-flex>
-                          <h4>Frequency: </h4><span>{{flight.scheduling.frequency}}</span><br>
-                          <span :key="index"
-                                v-for="(day, index) in flight.scheduling.parameters.days"> {{day}} </span>
-                        </v-flex>
-                        <v-flex>
-                          <h4>Ends At: </h4><span>{{flight.scheduling.ends_at | datetime_filter}}</span>
-                        </v-flex>
-                      </v-layout>
-                    </v-layout>
-                  </v-layout>
-                </v-layout>
-              </v-card-text>
-            </v-card>
+
           </v-tabs-content>
           <v-tabs-content
             id="tab-clearance"
@@ -303,12 +332,12 @@
           <v-tabs-content
             id="tab-commander-info"
           >
-            <commander-info :commander_name="flight.commander_id" :created_by="flight.created_by"/>
+
           </v-tabs-content>
           <v-tabs-content
             id="tab-description"
           >
-            <description-tab :description="flight.description"/>
+
           </v-tabs-content>
         </v-tabs-items>
       </v-tabs>
@@ -367,6 +396,14 @@
     },
     data () {
       return {
+        model: 'tab-2',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        tabs: [
+          {title: 'Flight Details', id: 'flight-details'},
+          {title: 'Description', id: 'description'},
+          {title: 'Commander Info', id: 'commander'},
+          {title: 'Clearance', id: 'clearance'},
+        ],
         active: null,
         delete_dialog: false,
         clearance: {
