@@ -17,7 +17,7 @@ def send_verification_email(user_first_name, email, user_id, domain):
     uidb64 = urlsafe_base64_encode(force_bytes(user_id))
     token = account_activation_token.make_token(username)
     # TODO Remove my email. Make an env variable setting to send 'cc's to the admin.
-    receivers = [email, 'michael.ransby@gmail.com']
+    receivers = [email, 'michael.ransby+flyright@gmail.com']
 
     link = domain + """/user/activate/""" + uidb64 + """/""" + token
     sender = 'no-reply-flyright@police.gatech.edu'
@@ -39,7 +39,7 @@ Flyright Team.<br>
         """
 
     try:
-        smtpObj = smtplib.SMTP('outbound.gatech.edu')
+        smtpObj = smtplib.SMTP('outbound.mail.gatech.edu')
         smtpObj.sendmail(sender, receivers, message)
         print("Successfully sent email")
     except:
