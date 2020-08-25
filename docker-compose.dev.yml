@@ -42,7 +42,7 @@ services:
     command: yarn start
     environment:
       - HOST=0.0.0.0
-      - PORT=8080
+      - PORT=443
       - VUE_APP_BUSINESS_LOGIC_HOST=http://business-logic:8000
       - CHOKIDAR_USEPOLLING=true
       - CLIENT_ID=1
@@ -50,9 +50,9 @@ services:
     volumes:
       - .:/usr/src/app
     ports:
-      - 8080:8080
+      - 443:443
     expose:
-      - 8080
+      - 443
   redis:
     image: redis
     ports:

@@ -35,7 +35,7 @@ http {
 
     server {
         include /etc/nginx/mime.types;
-        listen       443 ssl;
+        listen       8000 ssl;
         server_name  flyright-api.police.gatech.edu www.flyright-api.police.gatech.edu;
         root         /usr/share/nginx/dist;
         access_log /var/log/nginx/access.log;
