@@ -13,7 +13,7 @@
     "@fullcalendar/core": "^4.3.1",
     "@fullcalendar/timegrid": "^4.3.0",
     "@fullcalendar/vue": "^4.3.1",
-    "axios": "^0.17.1",
+    "axios": "^0.21.1",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "chart.js": "^2.7.2",
     "compression-webpack-plugin": "^1.1.11",
