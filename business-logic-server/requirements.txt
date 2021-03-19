@@ -3,7 +3,7 @@ psycopg2-binary==2.7.5
 django-cors-headers==2.4.0
 configparser==3.5.0
 filelock==2.0.6
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 markdown==2.6.11
 django-filter==2.0.0
 django-guardian==1.4.9
