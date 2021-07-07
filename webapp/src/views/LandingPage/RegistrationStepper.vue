@@ -303,10 +303,15 @@
               this.$emit('snackbar', 6000, 'Account registered.')
               this.dialog = true
               this.$refs.form.reset()
-          } 
+          }
+           
         }
-        catch(err) {
-          this.$emit('snackbar', 6000, 'Error registering account.')
+        catch(err) {      
+          if(err == "Error: Request failed with status code 400") {
+            this.$emit('snackbar', 6000, 'Account with this email address already exists')
+          } else {
+            this.$emit('snackbar', 6000, 'Error registering account.')
+          }
         }
       },
       cancel() {
